@@ -1,0 +1,887 @@
+fuel(  1).fgi_1hr= 0.0224;
+fuel(  1).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  1).fgi_10hr= 0.0000;
+fuel(  1).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  1).fgi_100hr= 0.0000;
+fuel(  1).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  1).fgi_live_herb= 0.0673;
+fuel(  1).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  1).fgi_live_woody= 0.0000;
+fuel(  1).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  1).savr_dead_1hr= 7217.847769;
+fuel(  1).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  1).savr_dead_10hr= 357.6115;
+fuel(  1).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  1).savr_dead_100hr= 98.4252;
+fuel(  1).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  1).savr_live_herb= 6561.67979;
+fuel(  1).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  1).savr_live_woody= 32805.11811;
+fuel(  1).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel(  2).fgi_1hr= 0.0224;
+fuel(  2).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  2).fgi_10hr= 0.0000;
+fuel(  2).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  2).fgi_100hr= 0.0000;
+fuel(  2).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  2).fgi_live_herb= 0.2242;
+fuel(  2).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  2).fgi_live_woody= 0.0000;
+fuel(  2).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  2).savr_dead_1hr= 6561.67979;
+fuel(  2).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  2).savr_dead_10hr= 357.6115;
+fuel(  2).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  2).savr_dead_100hr= 98.4252;
+fuel(  2).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  2).savr_live_herb= 5905.511811;
+fuel(  2).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  2).savr_live_woody= 32805.11811;
+fuel(  2).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel(  3).fgi_1hr= 0.0224;
+fuel(  3).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  3).fgi_10hr= 0.0897;
+fuel(  3).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  3).fgi_100hr= 0.0000;
+fuel(  3).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  3).fgi_live_herb= 0.3363;
+fuel(  3).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  3).fgi_live_woody= 0.0000;
+fuel(  3).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  3).savr_dead_1hr= 4921.259843;
+fuel(  3).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  3).savr_dead_10hr= 357.6115;
+fuel(  3).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  3).savr_dead_100hr= 98.4252;
+fuel(  3).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  3).savr_live_herb= 4265.091864;
+fuel(  3).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  3).savr_live_woody= 32805.11811;
+fuel(  3).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel(  4).fgi_1hr= 0.0561;
+fuel(  4).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  4).fgi_10hr= 0.0000;
+fuel(  4).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  4).fgi_100hr= 0.0000;
+fuel(  4).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  4).fgi_live_herb= 0.4260;
+fuel(  4).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  4).fgi_live_woody= 0.0000;
+fuel(  4).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  4).savr_dead_1hr= 6561.67979;
+fuel(  4).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  4).savr_dead_10hr= 357.6115;
+fuel(  4).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  4).savr_dead_100hr= 98.4252;
+fuel(  4).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  4).savr_live_herb= 5905.511811;
+fuel(  4).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  4).savr_live_woody= 32805.11811;
+fuel(  4).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel(  5).fgi_1hr= 0.0897;
+fuel(  5).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  5).fgi_10hr= 0.0000;
+fuel(  5).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  5).fgi_100hr= 0.0000;
+fuel(  5).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  5).fgi_live_herb= 0.5605;
+fuel(  5).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  5).fgi_live_woody= 0.0000;
+fuel(  5).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  5).savr_dead_1hr= 5905.511811;
+fuel(  5).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  5).savr_dead_10hr= 357.6115;
+fuel(  5).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  5).savr_dead_100hr= 98.4252;
+fuel(  5).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  5).savr_live_herb= 5249.343832;
+fuel(  5).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  5).savr_live_woody= 32805.11811;
+fuel(  5).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel(  6).fgi_1hr= 0.0224;
+fuel(  6).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  6).fgi_10hr= 0.0000;
+fuel(  6).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  6).fgi_100hr= 0.0000;
+fuel(  6).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  6).fgi_live_herb= 0.7623;
+fuel(  6).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  6).fgi_live_woody= 0.0000;
+fuel(  6).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  6).savr_dead_1hr= 7217.847769;
+fuel(  6).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  6).savr_dead_10hr= 357.6115;
+fuel(  6).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  6).savr_dead_100hr= 98.4252;
+fuel(  6).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  6).savr_live_herb= 6561.67979;
+fuel(  6).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  6).savr_live_woody= 32805.11811;
+fuel(  6).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel(  7).fgi_1hr= 0.2242;
+fuel(  7).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  7).fgi_10hr= 0.0000;
+fuel(  7).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  7).fgi_100hr= 0.0000;
+fuel(  7).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  7).fgi_live_herb= 1.2108;
+fuel(  7).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  7).fgi_live_woody= 0.0000;
+fuel(  7).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  7).savr_dead_1hr= 6561.67979;
+fuel(  7).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  7).savr_dead_10hr= 357.6115;
+fuel(  7).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  7).savr_dead_100hr= 98.4252;
+fuel(  7).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  7).savr_live_herb= 5905.511811;
+fuel(  7).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  7).savr_live_woody= 32805.11811;
+fuel(  7).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel(  8).fgi_1hr= 0.1121;
+fuel(  8).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  8).fgi_10hr= 0.2242;
+fuel(  8).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  8).fgi_100hr= 0.0000;
+fuel(  8).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  8).fgi_live_herb= 1.6368;
+fuel(  8).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  8).fgi_live_woody= 0.0000;
+fuel(  8).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  8).savr_dead_1hr= 4921.259843;
+fuel(  8).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  8).savr_dead_10hr= 357.6115;
+fuel(  8).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  8).savr_dead_100hr= 98.4252;
+fuel(  8).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  8).savr_live_herb= 4265.091864;
+fuel(  8).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  8).savr_live_woody= 32805.11811;
+fuel(  8).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel(  9).fgi_1hr= 0.2242;
+fuel(  9).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel(  9).fgi_10hr= 0.2242;
+fuel(  9).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel(  9).fgi_100hr= 0.0000;
+fuel(  9).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel(  9).fgi_live_herb= 2.0179;
+fuel(  9).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel(  9).fgi_live_woody= 0.0000;
+fuel(  9).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel(  9).savr_dead_1hr= 5905.511811;
+fuel(  9).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  9).savr_dead_10hr= 357.6115;
+fuel(  9).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  9).savr_dead_100hr= 98.4252;
+fuel(  9).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  9).savr_live_herb= 5249.343832;
+fuel(  9).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel(  9).savr_live_woody= 32805.11811;
+fuel(  9).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+fuel( 10).fgi_1hr= 0.0448;
+fuel( 10).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 10).fgi_10hr= 0.0000;
+fuel( 10).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 10).fgi_100hr= 0.0000;
+fuel( 10).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 10).fgi_live_herb= 0.1121;
+fuel( 10).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 10).fgi_live_woody= 0.1457;
+fuel( 10).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 10).savr_dead_1hr= 6561.67979;
+fuel( 10).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 10).savr_dead_10hr= 357.6115;
+fuel( 10).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 10).savr_dead_100hr= 98.4252;
+fuel( 10).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 10).savr_live_herb= 5905.511811;
+fuel( 10).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 10).savr_live_woody= 5905.511811;
+fuel( 10).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 11).fgi_1hr= 0.1121;
+fuel( 11).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 11).fgi_10hr= 0.1121;
+fuel( 11).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 11).fgi_100hr= 0.0000;
+fuel( 11).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 11).fgi_live_herb= 0.1345;
+fuel( 11).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 11).fgi_live_woody= 0.2242;
+fuel( 11).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 11).savr_dead_1hr= 6561.67979;
+fuel( 11).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 11).savr_dead_10hr= 357.6115;
+fuel( 11).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 11).savr_dead_100hr= 98.4252;
+fuel( 11).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 11).savr_live_herb= 5905.511811;
+fuel( 11).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 11).savr_live_woody= 5905.511811;
+fuel( 11).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 12).fgi_1hr= 0.0673;
+fuel( 12).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 12).fgi_10hr= 0.0561;
+fuel( 12).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 12).fgi_100hr= 0.0000;
+fuel( 12).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 12).fgi_live_herb= 0.3251;
+fuel( 12).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 12).fgi_live_woody= 0.2803;
+fuel( 12).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 12).savr_dead_1hr= 5905.511811;
+fuel( 12).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 12).savr_dead_10hr= 357.6115;
+fuel( 12).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 12).savr_dead_100hr= 98.4252;
+fuel( 12).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 12).savr_live_herb= 5249.343832;
+fuel( 12).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 12).savr_live_woody= 5249.343832;
+fuel( 12).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 13).fgi_1hr= 0.4260;
+fuel( 13).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 13).fgi_10hr= 0.0673;
+fuel( 13).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 13).fgi_100hr= 0.0224;
+fuel( 13).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 13).fgi_live_herb= 0.7623;
+fuel( 13).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 13).fgi_live_woody= 1.5919;
+fuel( 13).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 13).savr_dead_1hr= 5905.511811;
+fuel( 13).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 13).savr_dead_10hr= 357.6115;
+fuel( 13).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 13).savr_dead_100hr= 98.4252;
+fuel( 13).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 13).savr_live_herb= 5249.343832;
+fuel( 13).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 13).savr_live_woody= 5249.343832;
+fuel( 13).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 14).fgi_1hr= 0.0561;
+fuel( 14).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 14).fgi_10hr= 0.0561;
+fuel( 14).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 14).fgi_100hr= 0.0000;
+fuel( 14).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 14).fgi_live_herb= 0.0336;
+fuel( 14).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 14).fgi_live_woody= 0.2915;
+fuel( 14).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 14).savr_dead_1hr= 6561.67979;
+fuel( 14).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 14).savr_dead_10hr= 357.6115;
+fuel( 14).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 14).savr_dead_100hr= 98.4252;
+fuel( 14).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 14).savr_live_herb= 5905.511811;
+fuel( 14).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 14).savr_live_woody= 5249.343832;
+fuel( 14).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 15).fgi_1hr= 0.3027;
+fuel( 15).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 15).fgi_10hr= 0.5381;
+fuel( 15).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 15).fgi_100hr= 0.1682;
+fuel( 15).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 15).fgi_live_herb= 0.0000;
+fuel( 15).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 15).fgi_live_woody= 0.8632;
+fuel( 15).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 15).savr_dead_1hr= 6561.67979;
+fuel( 15).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 15).savr_dead_10hr= 357.6115;
+fuel( 15).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 15).savr_dead_100hr= 98.4252;
+fuel( 15).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 15).savr_live_herb= 32805.11811;
+fuel( 15).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 15).savr_live_woody= 5249.343832;
+fuel( 15).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+fuel( 16).fgi_1hr= 0.1009;
+fuel( 16).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 16).fgi_10hr= 0.6726;
+fuel( 16).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 16).fgi_100hr= 0.0000;
+fuel( 16).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 16).fgi_live_herb= 0.0000;
+fuel( 16).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 16).fgi_live_woody= 1.3901;
+fuel( 16).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 16).savr_dead_1hr= 5249.343832;
+fuel( 16).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 16).savr_dead_10hr= 357.6115;
+fuel( 16).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 16).savr_dead_100hr= 98.4252;
+fuel( 16).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 16).savr_live_herb= 32805.11811;
+fuel( 16).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 16).savr_live_woody= 4593.175853;
+fuel( 16).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel( 17).fgi_1hr= 0.1906;
+fuel( 17).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 17).fgi_10hr= 0.2578;
+fuel( 17).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 17).fgi_100hr= 0.0448;
+fuel( 17).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 17).fgi_live_herb= 0.0000;
+fuel( 17).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 17).fgi_live_woody= 0.5717;
+fuel( 17).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 17).savr_dead_1hr= 6561.67979;
+fuel( 17).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 17).savr_dead_10hr= 357.6115;
+fuel( 17).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 17).savr_dead_100hr= 98.4252;
+fuel( 17).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 17).savr_live_herb= 5905.511811;
+fuel( 17).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 17).savr_live_woody= 5249.343832;
+fuel( 17).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel( 18).fgi_1hr= 0.8072;
+fuel( 18).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 18).fgi_10hr= 0.4709;
+fuel( 18).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 18).fgi_100hr= 0.0000;
+fuel( 18).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 18).fgi_live_herb= 0.0000;
+fuel( 18).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 18).fgi_live_woody= 0.6502;
+fuel( 18).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 18).savr_dead_1hr= 2460.629921;
+fuel( 18).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 18).savr_dead_10hr= 357.6115;
+fuel( 18).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 18).savr_dead_100hr= 98.4252;
+fuel( 18).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 18).savr_live_herb= 32805.11811;
+fuel( 18).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 18).savr_live_woody= 5249.343832;
+fuel( 18).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 19).fgi_1hr= 0.6502;
+fuel( 19).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 19).fgi_10hr= 0.3251;
+fuel( 19).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 19).fgi_100hr= 0.0000;
+fuel( 19).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 19).fgi_live_herb= 0.0000;
+fuel( 19).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 19).fgi_live_woody= 0.3139;
+fuel( 19).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 19).savr_dead_1hr= 2460.629921;
+fuel( 19).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 19).savr_dead_10hr= 357.6115;
+fuel( 19).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 19).savr_dead_100hr= 98.4252;
+fuel( 19).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 19).savr_live_herb= 32805.11811;
+fuel( 19).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 19).savr_live_woody= 5249.343832;
+fuel( 19).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 20).fgi_1hr= 0.7848;
+fuel( 20).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 20).fgi_10hr= 1.1883;
+fuel( 20).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 20).fgi_100hr= 0.4933;
+fuel( 20).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 20).fgi_live_herb= 0.0000;
+fuel( 20).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 20).fgi_live_woody= 0.7623;
+fuel( 20).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 20).savr_dead_1hr= 2460.629921;
+fuel( 20).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 20).savr_dead_10hr= 357.6115;
+fuel( 20).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 20).savr_dead_100hr= 98.4252;
+fuel( 20).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 20).savr_live_herb= 32805.11811;
+fuel( 20).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 20).savr_live_woody= 5249.343832;
+fuel( 20).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 21).fgi_1hr= 0.4596;
+fuel( 21).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 21).fgi_10hr= 0.7623;
+fuel( 21).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 21).fgi_100hr= 0.1906;
+fuel( 21).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 21).fgi_live_herb= 0.0000;
+fuel( 21).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 21).fgi_live_woody= 0.9753;
+fuel( 21).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 21).savr_dead_1hr= 2460.629921;
+fuel( 21).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 21).savr_dead_10hr= 357.6115;
+fuel( 21).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 21).savr_dead_100hr= 98.4252;
+fuel( 21).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 21).savr_live_herb= 32805.11811;
+fuel( 21).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 21).savr_live_woody= 5249.343832;
+fuel( 21).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 22).fgi_1hr= 1.0090;
+fuel( 22).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 22).fgi_10hr= 0.5493;
+fuel( 22).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 22).fgi_100hr= 0.0000;
+fuel( 22).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 22).fgi_live_herb= 0.3475;
+fuel( 22).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 22).fgi_live_woody= 1.5695;
+fuel( 22).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 22).savr_dead_1hr= 2460.629921;
+fuel( 22).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 22).savr_dead_10hr= 357.6115;
+fuel( 22).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 22).savr_dead_100hr= 98.4252;
+fuel( 22).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 22).savr_live_herb= 5905.511811;
+fuel( 22).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 22).savr_live_woody= 4921.259843;
+fuel( 22).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel( 23).fgi_1hr= 0.0448;
+fuel( 23).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 23).fgi_10hr= 0.2018;
+fuel( 23).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 23).fgi_100hr= 0.3363;
+fuel( 23).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 23).fgi_live_herb= 0.0448;
+fuel( 23).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 23).fgi_live_woody= 0.2018;
+fuel( 23).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 23).savr_dead_1hr= 6561.67979;
+fuel( 23).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 23).savr_dead_10hr= 357.6115;
+fuel( 23).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 23).savr_dead_100hr= 98.4252;
+fuel( 23).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 23).savr_live_herb= 5905.511811;
+fuel( 23).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 23).savr_live_woody= 5249.343832;
+fuel( 23).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 24).fgi_1hr= 0.2130;
+fuel( 24).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 24).fgi_10hr= 0.4036;
+fuel( 24).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 24).fgi_100hr= 0.2803;
+fuel( 24).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 24).fgi_live_herb= 0.0000;
+fuel( 24).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 24).fgi_live_woody= 0.0448;
+fuel( 24).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 24).savr_dead_1hr= 6561.67979;
+fuel( 24).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 24).savr_dead_10hr= 357.6115;
+fuel( 24).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 24).savr_dead_100hr= 98.4252;
+fuel( 24).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 24).savr_live_herb= 32805.11811;
+fuel( 24).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 24).savr_live_woody= 5249.343832;
+fuel( 24).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 25).fgi_1hr= 0.2466;
+fuel( 25).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 25).fgi_10hr= 0.0336;
+fuel( 25).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 25).fgi_100hr= 0.0561;
+fuel( 25).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 25).fgi_live_herb= 0.1457;
+fuel( 25).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 25).fgi_live_woody= 0.2466;
+fuel( 25).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 25).savr_dead_1hr= 5905.511811;
+fuel( 25).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 25).savr_dead_10hr= 357.6115;
+fuel( 25).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 25).savr_dead_100hr= 98.4252;
+fuel( 25).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 25).savr_live_herb= 5249.343832;
+fuel( 25).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 25).savr_live_woody= 4593.175853;
+fuel( 25).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 26).fgi_1hr= 1.0090;
+fuel( 26).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 26).fgi_10hr= 0.0000;
+fuel( 26).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 26).fgi_100hr= 0.0000;
+fuel( 26).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 26).fgi_live_herb= 0.0000;
+fuel( 26).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 26).fgi_live_woody= 0.4484;
+fuel( 26).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 26).savr_dead_1hr= 7545.931759;
+fuel( 26).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 26).savr_dead_10hr= 357.6115;
+fuel( 26).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 26).savr_dead_100hr= 98.4252;
+fuel( 26).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 26).savr_live_herb= 32805.11811;
+fuel( 26).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 26).savr_live_woody= 6561.67979;
+fuel( 26).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 27).fgi_1hr= 0.8969;
+fuel( 27).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 27).fgi_10hr= 0.8969;
+fuel( 27).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 27).fgi_100hr= 0.6726;
+fuel( 27).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 27).fgi_live_herb= 0.0000;
+fuel( 27).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 27).fgi_live_woody= 0.6726;
+fuel( 27).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 27).savr_dead_1hr= 4921.259843;
+fuel( 27).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 27).savr_dead_10hr= 357.6115;
+fuel( 27).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 27).savr_dead_100hr= 98.4252;
+fuel( 27).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 27).savr_live_herb= 32805.11811;
+fuel( 27).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 27).savr_live_woody= 2460.629921;
+fuel( 27).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel( 28).fgi_1hr= 0.2242;
+fuel( 28).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 28).fgi_10hr= 0.4933;
+fuel( 28).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 28).fgi_100hr= 0.8072;
+fuel( 28).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 28).fgi_live_herb= 0.0000;
+fuel( 28).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 28).fgi_live_woody= 0.0000;
+fuel( 28).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 28).savr_dead_1hr= 6561.67979;
+fuel( 28).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 28).savr_dead_10hr= 357.6115;
+fuel( 28).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 28).savr_dead_100hr= 98.4252;
+fuel( 28).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 28).savr_live_herb= 32805.11811;
+fuel( 28).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 28).savr_live_woody= 32805.11811;
+fuel( 28).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+
+fuel( 29).fgi_1hr= 0.3139;
+fuel( 29).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 29).fgi_10hr= 0.5157;
+fuel( 29).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 29).fgi_100hr= 0.4933;
+fuel( 29).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 29).fgi_live_herb= 0.0000;
+fuel( 29).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 29).fgi_live_woody= 0.0000;
+fuel( 29).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 29).savr_dead_1hr= 6561.67979;
+fuel( 29).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 29).savr_dead_10hr= 357.6115;
+fuel( 29).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 29).savr_dead_100hr= 98.4252;
+fuel( 29).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 29).savr_live_herb= 32805.11811;
+fuel( 29).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 29).savr_live_woody= 32805.11811;
+fuel( 29).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 30).fgi_1hr= 0.1121;
+fuel( 30).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 30).fgi_10hr= 0.4933;
+fuel( 30).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 30).fgi_100hr= 0.6278;
+fuel( 30).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 30).fgi_live_herb= 0.0000;
+fuel( 30).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 30).fgi_live_woody= 0.0000;
+fuel( 30).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 30).savr_dead_1hr= 6561.67979;
+fuel( 30).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 30).savr_dead_10hr= 357.6115;
+fuel( 30).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 30).savr_dead_100hr= 98.4252;
+fuel( 30).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 30).savr_live_herb= 32805.11811;
+fuel( 30).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 30).savr_live_woody= 32805.11811;
+fuel( 30).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 31).fgi_1hr= 0.1121;
+fuel( 31).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 31).fgi_10hr= 0.3363;
+fuel( 31).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 31).fgi_100hr= 0.9417;
+fuel( 31).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 31).fgi_live_herb= 0.0000;
+fuel( 31).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 31).fgi_live_woody= 0.0000;
+fuel( 31).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 31).savr_dead_1hr= 6561.67979;
+fuel( 31).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 31).savr_dead_10hr= 357.6115;
+fuel( 31).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 31).savr_dead_100hr= 98.4252;
+fuel( 31).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 31).savr_live_herb= 32805.11811;
+fuel( 31).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 31).savr_live_woody= 32805.11811;
+fuel( 31).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 32).fgi_1hr= 0.2578;
+fuel( 32).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 32).fgi_10hr= 0.5605;
+fuel( 32).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 32).fgi_100hr= 0.9865;
+fuel( 32).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 32).fgi_live_herb= 0.0000;
+fuel( 32).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 32).fgi_live_woody= 0.0000;
+fuel( 32).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 32).savr_dead_1hr= 6561.67979;
+fuel( 32).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 32).savr_dead_10hr= 357.6115;
+fuel( 32).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 32).savr_dead_100hr= 98.4252;
+fuel( 32).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 32).savr_live_herb= 32805.11811;
+fuel( 32).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 32).savr_live_woody= 5249.343832;
+fuel( 32).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 33).fgi_1hr= 0.5381;
+fuel( 33).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 33).fgi_10hr= 0.2691;
+fuel( 33).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 33).fgi_100hr= 0.2691;
+fuel( 33).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 33).fgi_live_herb= 0.0000;
+fuel( 33).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 33).fgi_live_woody= 0.0000;
+fuel( 33).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 33).savr_dead_1hr= 6561.67979;
+fuel( 33).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 33).savr_dead_10hr= 357.6115;
+fuel( 33).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 33).savr_dead_100hr= 98.4252;
+fuel( 33).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 33).savr_live_herb= 32805.11811;
+fuel( 33).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 33).savr_live_woody= 32805.11811;
+fuel( 33).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 34).fgi_1hr= 0.0673;
+fuel( 34).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 34).fgi_10hr= 0.3139;
+fuel( 34).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 34).fgi_100hr= 1.8161;
+fuel( 34).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 34).fgi_live_herb= 0.0000;
+fuel( 34).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 34).fgi_live_woody= 0.0000;
+fuel( 34).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 34).savr_dead_1hr= 6561.67979;
+fuel( 34).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 34).savr_dead_10hr= 357.6115;
+fuel( 34).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 34).savr_dead_100hr= 98.4252;
+fuel( 34).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 34).savr_live_herb= 32805.11811;
+fuel( 34).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 34).savr_live_woody= 32805.11811;
+fuel( 34).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 35).fgi_1hr= 1.3004;
+fuel( 35).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 35).fgi_10hr= 0.3139;
+fuel( 35).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 35).fgi_100hr= 0.2466;
+fuel( 35).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 35).fgi_live_herb= 0.0000;
+fuel( 35).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 35).fgi_live_woody= 0.0000;
+fuel( 35).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 35).savr_dead_1hr= 5905.511811;
+fuel( 35).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 35).savr_dead_10hr= 357.6115;
+fuel( 35).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 35).savr_dead_100hr= 98.4252;
+fuel( 35).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 35).savr_live_herb= 32805.11811;
+fuel( 35).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 35).savr_live_woody= 32805.11811;
+fuel( 35).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 36).fgi_1hr= 1.4910;
+fuel( 36).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 36).fgi_10hr= 0.7399;
+fuel( 36).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 36).fgi_100hr= 0.9305;
+fuel( 36).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 36).fgi_live_herb= 0.0000;
+fuel( 36).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 36).fgi_live_woody= 0.0000;
+fuel( 36).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 36).savr_dead_1hr= 5905.511811;
+fuel( 36).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 36).savr_dead_10hr= 357.6115;
+fuel( 36).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 36).savr_dead_100hr= 98.4252;
+fuel( 36).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 36).savr_live_herb= 32805.11811;
+fuel( 36).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 36).savr_live_woody= 5249.343832;
+fuel( 36).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 37).fgi_1hr= 0.3363;
+fuel( 37).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 37).fgi_10hr= 0.6726;
+fuel( 37).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 37).fgi_100hr= 2.4664;
+fuel( 37).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 37).fgi_live_herb= 0.0000;
+fuel( 37).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 37).fgi_live_woody= 0.0000;
+fuel( 37).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 37).savr_dead_1hr= 6561.67979;
+fuel( 37).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 37).savr_dead_10hr= 357.6115;
+fuel( 37).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 37).savr_dead_100hr= 98.4252;
+fuel( 37).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 37).savr_live_herb= 32805.11811;
+fuel( 37).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 37).savr_live_woody= 32805.11811;
+fuel( 37).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 38).fgi_1hr= 1.0090;
+fuel( 38).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 38).fgi_10hr= 0.9529;
+fuel( 38).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 38).fgi_100hr= 0.8969;
+fuel( 38).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 38).fgi_live_herb= 0.0000;
+fuel( 38).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 38).fgi_live_woody= 0.0000;
+fuel( 38).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 38).savr_dead_1hr= 6561.67979;
+fuel( 38).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 38).savr_dead_10hr= 357.6115;
+fuel( 38).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 38).savr_dead_100hr= 98.4252;
+fuel( 38).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 38).savr_live_herb= 32805.11811;
+fuel( 38).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 38).savr_live_woody= 32805.11811;
+fuel( 38).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 39).fgi_1hr= 1.2332;
+fuel( 39).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 39).fgi_10hr= 0.6166;
+fuel( 39).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 39).fgi_100hr= 0.6726;
+fuel( 39).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 39).fgi_live_herb= 0.0000;
+fuel( 39).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 39).fgi_live_woody= 0.0000;
+fuel( 39).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 39).savr_dead_1hr= 6561.67979;
+fuel( 39).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 39).savr_dead_10hr= 357.6115;
+fuel( 39).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 39).savr_dead_100hr= 98.4252;
+fuel( 39).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 39).savr_live_herb= 32805.11811;
+fuel( 39).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 39).savr_live_woody= 32805.11811;
+fuel( 39).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
+
+fuel( 40).fgi_1hr= 1.1771;
+fuel( 40).fgi_1hr_descr='INITIAL TOTAL MASS OF 1hr SURFACE FUEL (KG/M**2)';
+fuel( 40).fgi_10hr= 0.7848;
+fuel( 40).fgi_10hr_descr='INITIAL TOTAL MASS OF 10hr SURFACE FUEL (KG/M**2)';
+fuel( 40).fgi_100hr= 1.1771;
+fuel( 40).fgi_100hr_descr='INITIAL TOTAL MASS OF 100hr SURFACE FUEL (KG/M**2)';
+fuel( 40).fgi_live_herb= 0.0000;
+fuel( 40).fgi_live_herb_descr='INITIAL TOTAL MASS OF LIVE HERB SURFACE FUEL (KG/M**2)';
+fuel( 40).fgi_live_woody= 0.0000;
+fuel( 40).fgi_live_woody_descr='INITIAL TOTAL MASS OF LIVE WOODY SURFACE FUEL (KG/M**2)';
+fuel( 40).savr_dead_1hr= 6561.67979;
+fuel( 40).savr_dead_1hr_descr='DEAD 1HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 40).savr_dead_10hr= 357.6115;
+fuel( 40).savr_dead_10hr_descr='DEAD 10HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 40).savr_dead_100hr= 98.4252;
+fuel( 40).savr_dead_100hr_descr='DEAD 100HR FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 40).savr_live_herb= 32805.11811;
+fuel( 40).savr_live_herb_descr='LIVE HERB FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+fuel( 40).savr_live_woody= 32805.11811;
+fuel( 40).savr_live_woody_descr='LIVE WOODY FUEL PARTICLE SURFACE-AREA-TO-VOLUME RATIO, 1/M';
+
