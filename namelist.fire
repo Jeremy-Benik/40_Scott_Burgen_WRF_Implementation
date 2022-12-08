@@ -110,8 +110,8 @@ no_fuel_cat2 = 100,
       0.010, 0.010, 0.010, 0.010, 0.010, 0.010,
 
 
-! weight  = 
-
+! These values for weight were based on the crosswalk table in the paper. I compared the 13 fuels to the 40 and used
+! The old values for testing this
   weight = 7.,   7.,   7.,   7.,   7.,   7.,   7.,   7.,   7.,   7.,
            7., 100., 100., 100., 100., 180., 100., 180., 100., 100., 
          100., 100., 900., 900., 900., 900., 900., 900., 900., 900.,
