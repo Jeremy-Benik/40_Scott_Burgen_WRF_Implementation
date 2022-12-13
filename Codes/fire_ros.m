@@ -84,7 +84,7 @@ if ~ichap,
 else  % chapparal
     %        .... spread rate has no dependency on fuel character, only windspeed.
     spdms = max(speed,0.);
-    ros = max(.03333,1.2974 * spdms^1.41);       % spread rate, m/s
+    ros = max(.03333,1.2974 * spdms.^1.41);       % spread rate, m/s
 end
 ros=min(ros,6);
 end
