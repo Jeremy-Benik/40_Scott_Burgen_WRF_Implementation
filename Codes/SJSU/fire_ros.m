@@ -52,6 +52,8 @@ rhob     = fuelload/fueldepth;             % ovendry bulk density, lb/ft^3
 c        = 7.47 * exp(-0.133 * savr^0.55); % const in wind coef
 bbb      = 0.02526 * savr^0.54;            % const in wind coef
 c        = c * windrf^bbb;                 % jm: wind reduction from 20ft per Baughman&Albini(1980)
+%to stay at midflame, keep this commented out
+%compare this code to SFIRE
 e        = 0.715 * exp( -3.59e-4 * savr);  % const in wind coef
 phiwc    = c * (betafl/betaop)^(-e); 
 rtemp2   = savr^1.5;
