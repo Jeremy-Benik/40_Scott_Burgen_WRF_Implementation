@@ -117,7 +117,7 @@ ros = fire_ros(x, wind_speed, slope, fmc)
 wind_speed = linspace(0, 5, 5);
 x = fuel(1);
 
-ros = fire_ros(x, wind_speed, 0, 0.03);
+ros = fire_ros(fuel(1), 0, 0, 0.03);
 disp(ros)
 
 

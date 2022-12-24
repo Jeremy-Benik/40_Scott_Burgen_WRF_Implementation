@@ -185,7 +185,16 @@ ReturnRothBase RothBase(FuelFamilyItem& f, double moisture1, double moisture10, 
 	double xi = 1 / (192 + 0.2595 * sigma) * exp((0.792 + 0.681 * power_(sigma, 0.5)) * (beta + 0.1));
 	double I_R = gamma * (w_n_i[0] * h_i[0] * eta_m_i[0] * eta_s_i[0] + w_n_i[1] * h_i[1] * eta_m_i[1] * eta_s_i[1]); //changed by Albini
 	double Q_ij[2][4];
-
+	std::cout << "The Reaction Intensity is: " << I_R << std::endl;	
+	std::cout << "Gamma is: " << gamma << std::endl;	
+	// std::cout << "w_n_i " << w_n_i[0] << std::endl;	
+	// std::cout << "h_i[0] " << h_i[0] << std::endl;
+	// std::cout << "eta_m_i[0] " << etam_m_i[0] << std::endl;
+	// std::cout << "eta_s_i[0] " << eta_s_i[0] << std::endl;
+	// std::cout << "w_n_i[1] " << w_n_i[1] << std::endl;
+	// std::cout << "h_i[1] " << h_i[1] << std::endl;
+	// std::cout << "eta_m_i[1] " << eta_m_i[1] << std::endl;
+	// std::cout << "eta_s_i[1] " << eta_s_i[1] << std::endl;
 	double denominador_aux[2] = { 0,0 };
 	for (int ii = 0; ii < 2; ii++)
 	{
