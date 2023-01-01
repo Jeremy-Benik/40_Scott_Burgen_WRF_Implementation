@@ -38,7 +38,7 @@ end
 % computations from CAWFE code: wf2_janice/fire_startup.m4 
 
 bmst     = fuelmc_g/(1+fuelmc_g);          % jm: 1 
-fuelheat = cmbcnst * 4.30e-04            % convert J/kg to BTU/lb
+fuelheat = cmbcnst * 4.30e-04;            % convert J/kg to BTU/lb
 fci      = (1.+fuelmc_c)*fci_d;
 fuelloadm= (1.-bmst) * fgi;                % fuelload without moisture
                                            % jm: 1.-bmst = 1/(1+fuelmc_g) so fgi includes moisture? 
@@ -60,15 +60,15 @@ rtemp2   = savr^1.5;
 gammax   = rtemp2/(495. + 0.0594*rtemp2);  % maximum rxn vel, 1/min
 a        = 1./(4.774 * savr^0.1 - 7.27);   % coef for optimum rxn vel
 ratio    = betafl/betaop;   
-gamma    = gammax*(ratio^a)*exp(a*(1.-ratio)) % optimum rxn vel, 1/min
-wn       = fuelload/(1 + st)              % net fuel loading, lb/ft^2
+gamma    = gammax*(ratio^a)*exp(a*(1.-ratio)); % optimum rxn vel, 1/min
+wn       = fuelload/(1 + st);              % net fuel loading, lb/ft^2
 rtemp1   = fuelmc_g/fuelmce;
-etam     = 1.-2.59*rtemp1 +5.11*rtemp1^2 -3.52*rtemp1^3  % moist damp coef
-etas     = 0.174* se^(-0.19)              % mineral damping coef
-ir       = gamma * wn * fuelheat * etam * etas % rxn intensity,btu/ft^2 min
+etam     = 1.-2.59*rtemp1 +5.11*rtemp1^2 -3.52*rtemp1^3;  % moist damp coef
+etas     = 0.174* se^(-0.19);              % mineral damping coef
+ir       = gamma * wn * fuelheat * etam * etas; % rxn intensity,btu/ft^2 min
 irm      = ir * 1055./( 0.3048^2 * 60.) * 1.e-6;% for mw/m^2 (set but not used)
 xifr     = exp( (0.792 + 0.681*savr^0.5)...
-            * (betafl+0.1)) /(192. + 0.2595*savr); % propagating flux ratio
+            * (betafl+0.1)) /(192. + 0.2595*savr) % propagating flux ratio
 %        ... r_0 is the spread rate for a fire on flat ground with no wind.
 r_0      = ir*xifr/(rhob * epsilon *qig);  % default spread rate in ft/min
 

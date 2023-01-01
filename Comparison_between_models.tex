@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[square]{natbib}
+\usepackage{caption}
+\usepackage{hyperref}
+\newcommand\tenpow[1]{\ensuremath{{\times}10^{#1}}}
+% These are the package Aurelien uses
+\usepackage[top=2cm,bottom=2cm,right=2.5cm,left=2.5cm]{geometry}
+\begin{document}
+\title{MATLAB vs. WFA}
+\author{By: Jeremy Benik}
+\maketitle
+	This document will cover the underlying equation in both the matlab code (fire \textunderscore ros.m and the WFA c++ code. To create a baseline test, I will be using the same example throughout the codes. Using the Albini codes, I will use fuel category 1 (short grass) with a dead fuel moisture of 3\%, and no wind and no slope for simplification. Then after this test I will include slope and wind conditions to further analyze the models to check for any differences. Please note, my knowledge of c++ is very limited so going through some of these calculations may seem unnecessary at first but they are necessary for me to understand the code. 
+\section{MATLAB}
+The code I'm going to use is fire\textunderscore ros.m from WRF-SFIRE. I will be going through each calculation, explaining each calculation, and seeing what the value is.
+
+\subsubsection*{Starting the analysis}
+\subsubsection*{BMST}
+\begin{equation}
+\label{bmst}
+\begin{split}
+	bmst &= fuelmc \textunderscore g / (1 + fuelmc \textunderscore g) \\
+	0.0291 &= 0.03 / (1 + 0.03)
+\end{split}
+\end{equation}
+Equation \ref{bmst} calculates the fuel moisture given a fuel moisture parameters. In this calculation, this would result in bmst = 0.0291. This is the relative water content \url{https://github.com/openwfm/WRF-SFIRE/blob/master/phys/module_fr_sfire_phys.F#L1327}.
+\\
+\subsubsection*{Fuelheat}
+\noindent The next equation converts the combustion coefficient from J/kg to BTU/lb.
+\begin{equation}
+	\label{fuelheat}
+	\begin{split}
+		fuelheat &= cmbcnst * 4.30\tenpow{-4} \\
+		7.4962 \tenpow{3} &= 17433000 * 4.30\tenpow{-4}
+	\end{split}
+\end{equation}
+	In this analysis, this value is 7.4962e+03 BTU/lb. 
+\subsubsection*{FCI}
+	The next equation calculates the initial total mass of canopy fuel. This is not used in calculating the rate of spread in this model. 
+\begin{equation}
+	\label{fci}
+	fci = (1 + fuelmc \textunderscore c) * fci \textunderscore d
+\end{equation}
+\subsubsection*{Fuel-load}
+Next is calculating the fuel load without moisture and converting it to lb/ft$^2$
+\begin{equation}
+	\label{fuelloadm}
+	\begin{split}
+		fuelloadm &= (1 - bmst) * fgi \\
+		0.1612 &= (1 - 0.0291) * 0.1660 \\
+		fuelload &= fuelloadm * (0.3048)^2 * 2.205 \\
+		0.0330 &= 0.1612 * (0.3048) ^ 2 * 2.205
+	\end{split}
+\end{equation}
+\subsubsection*{Fuel height}
+Next is converting the fuel height from m to ft. 
+\begin{equation}
+	\label{fuel_depth_m}
+	\begin{split}
+		fueldepth &= fueldepthm / 0.03048 \\
+		1.0007 &= 0.30500 / 0.3048
+	\end{split}
+\end{equation}
+\subsubsection*{Betafl (Packing ratio)}
+\begin{equation}
+	\begin{split}
+		betafl &= fuelload/(fueldepth * fueldens) \\
+		0.0010 &= 0.0330 / (1.0007 * 32)
+	\end{split}
+\end{equation}
+
+\subsubsection*{Betaop (Optimum Packing Ratio)}
+\begin{equation}
+	\begin{split}
+		betaop &= 3.348 * savr^{(-0.8189)} \\
+		0.0042 &= 3.348 * 3500 ^ {(-0.8189)}
+	\end{split}
+\end{equation}
+
+\subsubsection*{Q$_ig$ (Heat of preignition)}
+\begin{equation}
+	\begin{split}
+		qig &= 250. + 1116.*fuelmc \textunderscore g \\
+		283.4800 &= 250 + 1116 * 0.03
+	\end{split}
+\end{equation}
+
+\subsubsection*{$\epsilon$ Effective heating number}
+
+\begin{equation}
+	\begin{split}
+		epsilon &= e ^ {-138 / savr} \\
+		0.9613 &= e ^ {-138 / 3500} 
+	\end{split}
+\end{equation}
+
+\subsubsection*{rhob ovendry bulk density}
+\begin{equation}
+	\begin{split}
+		rhob &= fuelload/fueldepth \\
+		0.0330 &= 0.0330 / 1.0007
+	\end{split}
+\end{equation}
+
+Please note, I will be skipping the wind coefficient for now since I want to evaluate no wind no slope first. After that analysis, I will include the wind and slope parameters
+\subsubsection*{gammax (maximum reaction velocity)}
+\begin{equation}
+	\begin{split}
+		rtemp2 &= savr ^ {1.5} \\
+		2.0706 \tenpow{5} &= 3500 ^ {1.5} \\
+		gammax   &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706 \tenpow{5} / (495. + 0.0594* 2.0706 \tenpow{5})
+	\end{split}
+\end{equation}
+
+\subsubsection*{}
+
+\subsubsection*{Coefficient for optimum reaction velocity}
+
+\begin{equation}
+	\begin{split}
+		a &= 1./(4.774 * savr^{0.1} - 7.27) \\
+		0.2836 &= 1./(4.774 * 3500^{0.1} - 7.27)
+	\end{split}
+\end{equation}
+\subsubsection*{$\Gamma$ (Optimum reaction velocity)}
+\begin{equation}
+	\begin{split}
+		ratio &= betafl / betaop \\
+		0.2459 &= 0.0010 / 0.0042 \\
+		\Gamma &= gammax*(ratio^a)*exp(a*(1.-ratio)) \\
+		13.4642 &= 16.1837 * (0.2459 ^ 0.2836) * e^{0.2836 * (1- 0.2459)}
+	\end{split}
+\end{equation}
+
+\subsubsection*{wn net fuel loading}
+
+\begin{equation}
+	\begin{split}
+	wn &= fuelload / (1+ st) \\
+	0.0313 &= 0.0330 / (1 + 0.0555)	
+	\end{split}
+\end{equation}
+
+\subsubsection*{$\eta_M$ moisture damping coefficient}
+\begin{equation}
+	\begin{split}
+		rtemp1 &= fuelmc\textunderscore g / fuelmce \\
+		0.2500 &= 0.03 / 0.1200 \\
+		etam & = 1.-2.59*rtemp1 +5.11*rtemp1^2 -3.52*rtemp1^3 \\
+		0.6169 &= 1 - 2.59 * 0.25 + 5.11 * 0.25^2 - 3.53 * 0.25^3
+	\end{split}
+\end{equation}
+
+\subsubsection*{$\eta_s$ Mineral damping coefficient}
+\begin{equation}
+	\begin{split}
+		etas &= 0.174 * se^{-0.19} \\
+		0.4174 &= 0.174 * 0.01 ^ {-0.19}
+	\end{split}
+\end{equation}
+
+\subsubsection*{ir (Reaction Intensity)}
+\begin{equation}
+	\begin{split}
+		ir       &= gamma * wn * fuelheat * etam * etas \\
+		812.8685 &= 13.4642 * 0.0313 * (7.4962 \tenpow{3}) * 0.6169 * 0.4147
+	\end{split}
+\end{equation}
+\subsubsection*{xifr Propagating flux ratio}
+\begin{equation}
+	\begin{split}
+		xifr     &= \frac{e^ {(0.792 + 0.681*savr^0.5) * (betafl+0.1)}} {(192. + 0.2595*savr)} \\
+		0.0577 &= \frac{e^{(0.792 + 0.681 * 3500^{0.5}) * (0.0010 + 0.1)}} {(192 + 0.2595 * 3500}
+	\end{split}
+\end{equation}
+
+\subsection{Final ROS Equation (no slope no wind)}
+\begin{equation}
+	\begin{split}
+		r0 &= (ir*xifr/(rhob * epsilon *qig)) * .00508 \\
+		0.0265 &= (812.8685 * 0.0577 / (0.0330 * 0.9613 * 283.4800)) * 0.00508
+	\end{split}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
