@@ -1,9 +1,17 @@
-﻿#ifndef WFA_ROTHERMEL_H
+﻿//This code will be heavily modified (mostly by comments for me)
+// Including the file? This line I'm not too sure what it does
+#ifndef WFA_ROTHERMEL_H
 #define WFA_ROTHERMEL_H
 
+// Including the math libraries
 #include<math.h>
+// cmath allows for power for other numbers
 #include<cmath>
+
+#include <cstdio>
+// This is including the fuels file
 #include "WFA_Fuels.h"
+//This is including the helper file. I'm not 
 #include "WFA_Helper.h"
 
 const double PI = 3.1415926535;
@@ -12,6 +20,7 @@ const double DEG2RAD = PI / 180.0;
 
 
 class ReturnRothBase
+// This is just an object 
 {
 public:
 	double xiDivHeatSink, sigma, beta, iR, c, b, e, betaOp_, _temp, resTime;
@@ -186,7 +195,8 @@ ReturnRothBase RothBase(FuelFamilyItem& f, double moisture1, double moisture10, 
 	double I_R = gamma * (w_n_i[0] * h_i[0] * eta_m_i[0] * eta_s_i[0] + w_n_i[1] * h_i[1] * eta_m_i[1] * eta_s_i[1]); //changed by Albini
 	double Q_ij[2][4];
 	std::cout << "The Reaction Intensity is: " << I_R << std::endl;	
-	std::cout << "Gamma is: " << gamma << std::endl;	
+	std::cout << "Gamma is: " << gamma << std::endl;
+	printf("This is the value from w_n_i %f", w_n_i[0]);
 	// std::cout << "w_n_i " << w_n_i[0] << std::endl;	
 	// std::cout << "h_i[0] " << h_i[0] << std::endl;
 	// std::cout << "eta_m_i[0] " << etam_m_i[0] << std::endl;

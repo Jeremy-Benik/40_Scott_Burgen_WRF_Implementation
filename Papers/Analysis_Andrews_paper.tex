@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[square]{natbib}
+\usepackage{caption}
+\usepackage{hyperref}
+\newcommand\tenpow[1]{\ensuremath{{\times}10^{#1}}}
+% These are the package Aurelien uses
+\usepackage[top=2cm,bottom=2cm,right=2.5cm,left=2.5cm]{geometry}
+\begin{document}
+\title{Analysis of: The Rothermel Surface Fire Spread Model and Associated Developments: A Comprehensive Explanation by Patricia L. Andrews}
+\author{By: Jeremy Benik}
+\maketitle
+
+
+
+This will be a discussion of the paper. Since this paper closely relates to the BEHAVE model, I thought it would be a good idea to go through each one of their equations and compare it to the current code. One difference I already notice is the inclusion of the different SAVR and fuel loads. As a result there will likely be a lot of differences in the models, but we will get to that later. For now here are the equations and the math behind the model. 
+
+\section{Rothermel model}
+\subsubsection*{Basic Model}
+	The final ROS equation is heat source divided by heat sink and it applies to one size class of dead fuel (Insert reference). A series of equations is used to represent this relationship and can be seen in \ref{ROS_equation}
+	\begin{equation}
+		\label{ROS_equation}
+		R = \frac{I_R \xi (1 + \phi _W + \phi _ S)} {\rho _b \varepsilon Q_{ig}}
+	\end{equation}
+For a list of the parameters, please see table 1 on page 8 where the authors go in depth on each term and the units. Please see table 3 for a list of the equations
+
+\end{document}
