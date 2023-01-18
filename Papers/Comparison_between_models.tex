@@ -5,11 +5,13 @@
 \usepackage[square]{natbib}
 \usepackage{caption}
 \usepackage{hyperref}
+\usepackage{tcolorbox}
 \newcommand\tenpow[1]{\ensuremath{{\times}10^{#1}}}
+\newcommand\und{\textunderscore}
 % These are the package Aurelien uses
 \usepackage[top=2cm,bottom=2cm,right=2.5cm,left=2.5cm]{geometry}
 \begin{document}
-\title{MATLAB vs. WFA}
+\title{WRF-SFIRE vs. WFA}
 \author{By: Jeremy Benik}
 \maketitle
 	This document will cover the underlying equation in both the matlab code (fire \textunderscore ros.m and the WFA c++ code. To create a baseline test, I will be using the same example throughout the codes. Using the Albini codes, I will use fuel category 1 (short grass) with a dead fuel moisture of 3\%, and no wind and no slope for simplification. Then after this test I will include slope and wind conditions to further analyze the models to check for any differences. Please note, my knowledge of c++ is very limited so going through some of these calculations may seem unnecessary at first but they are necessary for me to understand the code. 
@@ -25,7 +27,7 @@ The code I'm going to use is fire\textunderscore ros.m from WRF-SFIRE. I will be
 	0.0291 &= 0.03 / (1 + 0.03)
 \end{split}
 \end{equation}
-Equation \ref{bmst} calculates the fuel moisture given a fuel moisture parameters. In this calculation, this would result in bmst = 0.0291. This is the relative water content \url{https://github.com/openwfm/WRF-SFIRE/blob/master/phys/module_fr_sfire_phys.F#L1327}.
+Equation \ref{bmst} calculates the fuel moisture given a fuel moisture parameters. In this calculation, this would result in bmst = 0.0291. This is the relative water content \url{https://github.com/openwfm/WRF-SFIRE/blob/master/phys/module1fr_sfire_phys.F#L1327}.
 \\
 \subsubsection*{Fuelheat}
 \noindent The next equation converts the combustion coefficient from J/kg to BTU/lb.
@@ -73,6 +75,7 @@ Next is converting the fuel height from m to ft.
 
 \subsubsection*{Betaop (Optimum Packing Ratio)}
 \begin{equation}
+\label{betafl_WRF}
 	\begin{split}
 		betaop &= 3.348 * savr^{(-0.8189)} \\
 		0.0042 &= 3.348 * 3500 ^ {(-0.8189)}
@@ -138,6 +141,7 @@ Please note, I will be skipping the wind coefficient for now since I want to eva
 \subsubsection*{wn net fuel loading}
 
 \begin{equation}
+\label{wn_WRF}
 	\begin{split}
 	wn &= fuelload / (1+ st) \\
 	0.0313 &= 0.0330 / (1 + 0.0555)	
@@ -187,17 +191,718 @@ Please note, I will be skipping the wind coefficient for now since I want to eva
 
 
 \section{WFA}
+Note: Thank you to Dr. Angel Farguell Cause for converting the WFA model c++ code into a MATLAB file for testing. 
+Since there are a lot of differences among this model and the WRF-SFIRE model, I will still go into every equation here along with the computation, but the final result won't be seen until the end as the final equations are at the end of the file. If you would like to get these files, please checkout my GitHub at: \url{https://github.com/Jeremy-Benik/40_Scott_Burgen_WRF_Implementation/tree/main/Codes/BEHAVE}
 
 
-*Note, this will be really unorganized at first. I will be inserting equations at random here while I try to find them all
+For testing the code, the input parameters used are the same as the WRF-SFIRE code, only more parameters are necessary and these are covered below. 
+\begin{itemize}
+	\item Fuel type: 1
+	\item Wind Speed: 0m/s
+	\item Slope: 0
+	\item FMC 1hr: 3$\%$
+	\item FMC 10hr: 0$\%$
+	\item FMC 100hr: 0$\%$
+	\item FMC Herbaceous: 0$\%$
+	\item FMC Woody: 0$\%$
+\end{itemize}
+\subsubsection*{Fuel/Input Parameters}
+The first differences are the fuel parameters and the input parameters. In fire\textunderscore ros.m, the only input parameters are fuel class, wind speed, topography, and fmc. However in this model, the inputs are the fuel class, wind speed, topography, 1hr fmc, 10hr fmc, 100hr fmc, herbacious fmc, woody fmc. There are also more fuel parameters such as the 1hr, 10hr, and 100hr SAVR, and the 1hr, 10hr, 100hr, herbacious, and woody fuel loads. This will make for a much more complex calculation, but the base model is still relatively the same. 
 
-\subsubsection*{beta\textunderscore op (Optimum packing ratio)}
+\subsubsection*{isdynamic}
+This parameter is only present in the 40 Scott and Burgen fuel class, but since it's a part of this model I included it. It's similar to ischap in the WRF-SFIRE model only that this changes the fuel load of the herbaceous fuels depending on the fmc. 
+
+\subsubsection*{Total Fuel Load}
+This equation calculated the total fuel load based on the other fuel loads (1hr, 10hr, 100hr, herbaceous dead, herbaceous live, and woody fuels)
+
 \begin{equation}
+	\label{fuel_load_WFA}
 	\begin{split}
-		beta\textunderscore op &= 3.348 * sigma ^ {-0.8189} \\
-		
+		fuelload &= fuelload\textunderscore1 + fuelload\textunderscore10 + fuelload\textunderscore100 + fuelload\textunderscore herba\textunderscore dead + fuelload\textunderscore herba + fuelload\textunderscore woody \\
+		0.0340 &= 0.0340 + 0 + 0 + 0 + 0 + 0
 	\end{split}
 \end{equation}
+
+\subsubsection*{Mean total surface area per unit fuel cell of each size class within each category}
+\begin{equation}
+	\label{mean_total_surface_area}
+	\begin{split}
+		A\textunderscore 1    &= savr\textunderscore 1 * fuelload\textunderscore 1 / fueldens \\
+				3.7118 &= 3500 * 0.0340 / 32 \\
+		A\textunderscore 10    &= savr\textunderscore 10 * fuelload\textunderscore 10 / fueldens \\
+		A\textunderscore 100   &= savr\textunderscore 100 * fuelload\textunderscore 100 / fueldens \\
+		A\textunderscore herba\textunderscore dead  &= savr\textunderscore herba\textunderscore dead * fuelload\textunderscore herba\textunderscore dead / fueldens \\
+		A\textunderscore herba &= savr\textunderscore herba * fuelload\textunderscore herba / fueldens \\
+		A\textunderscore woody &= savr\textunderscore woody * fuelload\textunderscore woody / fueldens 
+	\end{split}
+\end{equation}
+Please note that in equation \ref{mean_total_surface_area}, fuel type 1 only has savr\textunderscore 1, so all other calculations are zero. 
+The next equations calculate the mean total surface area per unit fuel cell of the dead and live categories. 
+\begin{equation}
+	\label{Dead_and_alive_SAVR}
+	\begin{split}
+		A\und dead        &= A\und1 + A\und10 + A\und100 + A\und herba\und dead \\
+				3.7188 &= 3.7118 + 0 + 0 + 0 \\
+		A\und live        &= A\und herba + A\und woody 
+	\end{split}
+\end{equation}
+Since fuel type one only has one SAVR (and that is the 1hr class), that will make A$\und$1 the only parameters in equation \ref{Dead_and_alive_SAVR} have a value other than zero. 
+
+The final calculation for the mean total surface area of the fuel is as follows: 
+\begin{equation}
+	\label{mean_SAVR}
+	\begin{split}
+		AT            &= A\und dead + A\und live \\ 
+		3.7118 &= 3.7118 + 0
+	\end{split}
+\end{equation}
+
+
+
+\subsubsection*{Weighting factors for each size class within each category}
+\begin{equation}
+	\label{size_class}
+	\begin{split}
+		f\und 1           &= A\und 1 / A\und dead \\
+		f\und 10          &= A\und 10 / A\und dead \\
+		f\und 100         &= A\und 100 / A\und dead \\
+		f\und herba\und dead  &= A\und herba\und dead / A\und dead \\
+		f\und herba       &= A\und herba / A\und live \\
+		f\und woody       &= A\und woody / A\und live \\
+		1 &= (3.7118 / 3.7118)
+	\end{split}
+\end{equation}
+Like with some of the other wquations, fuel type one only has savr 1 hour and fgi 1 hour so most of these equations eqaul zero except for f$\und$1. 
+
+Now onto calculating the weighting factors of the dead and live fuel categories. 
+\begin{equation}
+	\label{dead_and_alive_weighting_factors}
+	\begin{split}
+		f\und dead &= A\und dead / AT \\
+		f\und live &= A\und live / AT \\
+		1 &= 3.7118 / 3.7118
+	\end{split}
+\end{equation}
+
+\subsubsection*{Fuel particle SAVR of the dead and live categories}
+
+This section will go over how the SAVR are calculated for the different live and dead categories. Keep in mind we are using fuel type 1 for this experiment, so these calculations will remain simple, but these will be different for much more complex fuel types. 
+
+\begin{equation}
+	\label{savr_dead_alive}
+	\begin{split}
+		savr\und dead &= f\und 1 * savr\und 1 + f\und 10 * savr\und 10 + f\und 100 * savr\und 100 + f\und herba\und dead * savr\und herba\und dead \\
+			3500 &= 1 * 3500 + 0*0 + 0*0 + 0*0 \\
+		savr\und live &= f\und herba * savr\und herba + f\und woody * savr\und woody \\
+		savr &= f\und dead * savr\und dead + f\und live * savr\und live
+	\end{split} 
+\end{equation}
+For calculating the total SAVR, the authors combing both savr dead and savr live to get equation \ref{SAVR_total}.
+
+\begin{equation}
+	\label{SAVR_total}
+	\begin{split}
+			SAVR &= f\und dead * savr \und dead + f\und live * savr\und live \\
+			3500 &= 1 * 3500 + 0 * 0	
+	\end{split}
+\end{equation}
+
+
+\subsubsection*{Net Fuel Loading}
+\begin{equation}
+	\label{net_fuel_load_each_class}
+	\begin{split}
+		wn\und 1          &= fuelload\und 1 * (1 - st) \\
+		0.0321 &= 0.0340 * (1 - 0.0555) \\
+wn\und 10         &= fuelload\und 10 * (1 - st) \\
+wn\und 100        &= fuelload\und 100 * (1 - st) \\
+wn\und herba\und dead &= fuelload\und herba\und dead * (1 - st) \\
+wn\und herba      &= fuelload\und herba * (1 - st) \\
+wn\und woody      &= fuelload\und woody * (1 - st) 
+	\end{split}
+\end{equation}
+Like with previous equations, the only parameter that has a value is wn$\und$1 since we are using fuel class 1. 
+
+They then calculate the net fuel loading of the dead and live categories and this can be seen as:
+\begin{equation}
+	\begin{split}
+		wn\und dead       &= (f\und 1 + f\und herba\und dead) * (wn\und 1 + wn\und herba\und dead) + f\und 10 * wn\und 10 + f\und 100 * wn\und 100 \\
+		0.0321 &= (1 + 0) * (0.0321 + 0) * (0 * 0) + (0 * 0) \\
+		wn\und live       &= f\und herba * wn\und herba + f\und woody * wn\und woody 
+	\end{split}
+\end{equation}
+
+\subsubsection*{Live fuel moisture of Extinction}
+To calculate the live fuel moisture of extinction, the authors do this for each size class and they can be seen by: 
+\begin{equation}
+	\label{live_fmc_ext}
+	\begin{split}
+		exp00         &= fuelload\und 1 * \exp(-138.0 / savr\und 1) \\
+		0.0327 &= 0.0340 * \exp(-139/3500) \\
+exp01         &= fuelload\und 10 * \exp(-138.0 / savr\und 10) \\
+exp02         &= fuelload\und 100 * \exp(-138.0 / savr\und 100) \\
+exp03         &= fuelload\und herba\und dead * \exp(-138.0 / savr\und herba\und dead) \\
+exp10         &= fuelload\und herba * \exp(-500 / savr\und herba) \\
+exp11         &= fuelload\und woody * \exp(-500 / savr\und woody) 
+	\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+	W_prima       &= \frac{exp00 + exp01 + exp02 + exp03}{exp10 + exp11} \\
+	0 &= \frac{0.0327 + 0 + 0 + 0}{0 + 0}
+\end{split}
+\end{equation}
+
+\begin{equation}
+	\label{m_prima}
+	\begin{split}
+		M\und prima\und f     &= \frac{fmc\und 1 * exp00 + fmc\und 10 * exp01 + fmc\und 100 * exp02 + fmc\und herba\und dead * exp03}{exp00 + exp01 + exp02 + exp03} \\
+			0.0300 &= \frac{0.03 * 0.0327}{0.0327}
+	\end{split}
+\end{equation}
+
+These equations had to be separate as the text wrapping made the end of the equation impossible to see. Now onto the final calculation for the live fuel moisture of extinction. One thing to note in the code, if the fuel moisture of extinction is smaller than the fuel moisture, then the fuel moisture of extinction is set equal to the fuel moisture since it would be impossible to have a fuel moisture of extinction lesser than the fuel moisture. That would cause negative rate of spread values in the code and it would likely crash. 
+\begin{equation}
+	\label{final_fmc_ext}
+	\begin{split}
+			fuelmce\und live  &= 2.9 * W\und prima * (1 - M\und prima\und f / fuelmce) - 0.226 \\
+			-0.2260 &= 2.9 * 0.0300 * (1 - 0) - 0.226
+	\end{split}
+\end{equation}
+As a result, the final fuel moisture of extinction is 0.1200 since that is the given value for the live fuel moisture content of extinction in the fuels parameters. 
+
+\subsubsection*{Heat content of the dead and live categories}
+
+\begin{equation}
+\label{heat_content}
+	\begin{split}
+		fuelheat\und dead &= (f\und 1 + f\und 10 + f\und 100 + f\und herba\und dead) * fuelheat \\
+		8000 &= (1 + 0 + 0 + 0) * 8000 \\
+		fuelheat\und live &= (f\und herba + f\und woody) * fuelheat
+	\end{split}
+\end{equation}
+
+\subsubsection*{Fuel particle effective mineral content of the dead and live categories}
+\begin{equation}
+	\label{effective_mineral_content}
+	\begin{split}
+			se\und dead       &= (f\und 1 + f\und 10 + f\und 100 + f\und herba\und dead) * se \\
+			0.0100 &= (1 + 0 + 0 + 0) * 0.0100 \\
+			se\und live       &= (f\und herba + f\und woody) * se 
+	\end{split}
+\end{equation}
+
+
+
+\subsubsection*{Fuel moisture content of the dead and live categories}
+
+\begin{equation}
+	\begin{split}
+		fmc\und dead      &= f\und 1 * fmc\und 1 + f\und 10 * fmc\und 10 + f\und 100 * fmc\und 100 + f\und herba\und dead * fmc\und herba\und dead \\
+		fmc\und live      &= f\und herba * fmc\und herba + f\und woody * fmc\und woody \\
+		0.0300 &= 1 * 0.0300 + 0*0 + 0*0 + 0*0
+	\end{split}
+\end{equation}
+
+\subsubsection*{moisture damping coefficient of the dead and live categories}
+
+\begin{equation}
+	\label{damping_moisture_WFA}
+	\begin{split}
+		rtemp1\und dead   &= min(1,fmc\und dead/fuelmce) \\
+		0.2500 &= min(1, 0.0300 / 0.1200) \\
+rtemp1\und live   &= min(1,fmc\und live/fuelmce\und live) \\
+etam\und dead     &= 1. - 2.59*rtemp1\und dead + 5.11*rtemp1\und dead^2 - 3.52*rtemp1\und dead^3 \\
+0.6169 &= 1 - 2.59 * 0.2500 + 5.11 * 0.2500 ^ 2 - 3.52 * 0.2500 ^ 3 \\
+etam\und live     &= 1. - 2.59*rtemp1\und live + 5.11*rtemp1\und live^2 - 3.52*rtemp1\und live^3 \\
+1 &= 1 - 0 + 0 - 0
+	\end{split}
+\end{equation}
+
+\subsubsection*{Mineral damping coefficient of the dead and live categories}
+
+\begin{equation}
+\label{mineral_damping_WFA}
+\begin{split}
+	etas\und dead &= 0.174* power\und (se\und dead, -0.19) \\
+		0.4174 &= 0.174 * 0.0100^-0.19 \\
+	etas\und live &= 0.174* power\und (se\und live, -0.19) 
+\end{split}
+\end{equation}
+
+\subsubsection*{Coefficient for optimum reaction velocity}
+\begin{equation}
+	\label{rxn_vel_WFA}
+	\begin{split}
+		a &= 133 * savr ^ {-0.7913} \\
+		0.2087 &= 133 * 3500^{-0.7913}
+	\end{split}
+\end{equation}
+
+\subsubsection*{Equations for the Rothermel Model}
+
+The next set of equations are from the original fire$\und$ros.m file so I will not go in depth as to what they calculate. Instead I will give the equation and then the answer right below it. The differences arise in the effective heating number, the heat of preignition, and the heat sink as those incorporate the different fuel classes. For now, here are some of the base equations. If there are any differences between the values, I will highlight them and refer to the equation which yielded a different result after all the equations. 
+\begin{equation}
+\label{rhob_WFA}
+	\begin{split}
+		rhob  &= fuelload/fueldepth \\
+		0.0340 &= 0.0340 / 1
+	\end{split}
+\end{equation}
+
+
+\begin{equation}
+	\label{betafl_WFA}
+	\begin{split}
+		betafl        &= fuelload/(fueldepth * fueldens) \\
+		0.0011 &= 0.0340 / (1 * 32)
+	\end{split}
+\end{equation}
+
+
+
+\begin{equation}
+\label{betaop_WFA}
+	\begin{split}
+		betaop        &= 3.348 * savr^{ -0.8189} \\
+		0.0042 &= 3.348 * 3500 ^ { -0.8189}
+	\end{split}
+\end{equation}
+
+
+\begin{equation}
+	\label{rtemp2_WFA}
+	\begin{split}
+		rtemp2        &= savr^ {1.5} \\
+		2.0706\tenpow{5} &= 3500 ^ {1.5}
+	\end{split}
+\end{equation}
+
+
+\begin{equation}
+	\label{gammax_WFA}
+	\begin{split}
+		gammax        &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706\tenpow{5} (495 + 0.0594* 2.0706\tenpow{5})
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\label{ratio_WFA}
+	\begin{split}
+		ratio &= betafl/betaop \\ 
+		0.2534 &=0.0011 / 0.0042
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\label{gamma_WFA}
+	\begin{split}
+		gamma         &= gammax*(ratio^a * \exp(a*(1.-ratio)) \\
+		14.2014 &= 16.1837 * 0.2534 ^ {0.2087} * \exp(0.2087 * 1 - 0.2534)
+	\end{split}
+\end{equation}
+
+
+\begin{equation}
+	\label{xifr_WFA}
+	\begin{split}
+		xifr          &= \exp( (0.792 + 0.681*savr^{0.5})) * (betafl+0.1)) /(192. + 0.2595*savr) \\
+               0.0578 &= \exp((0.792 + 0.681 * 3500 ^ {0.5}) * (0.0011 + 0.1) / (192 + 0.2595 * 3500)
+	\end{split}
+\end{equation}
+
+
+\subsubsection*{Reaction intensity}
+
+Now we are getting into different equations between the models again. The difference here is equation \ref{ir_WFA} uses values from the live and dead fuel. 
+\begin{equation}
+	\label{ir_WFA}
+	\begin{split}
+		ir            &= gamma * (wn\und dead * fuelheat\und dead * etam\und dead * etas\und dead + wn\und live * fuelheat\und live * etam\und live * etas\und live) \\
+        939.3928 &= 14.2014 * (0.0321 * 8000 * 0.6169 * 0.4174 + 0 + 0 + 0 + 0)
+	\end{split}
+\end{equation}
+
+\subsubsection*{Heat of preignition of each size class within each category}
+Here they calculate the heat of preignition based on each fuel size class. Since we are using fuel type 1, only the first part of the equations will be used, but I'll list them all anyways. 
+\begin{equation}
+\label{qig_WFA}
+	\begin{split}
+	qig\und 1         &= 250. + 1116.*fmc\und 1 \\
+	283.4800 &= 250 + 1116 * 0.03 \\
+qig\und 10        &= 250. + 1116.*fmc\und 10 \\
+250 &= 250 + 1116 * 0 \\
+qig\und 100       &= 250. + 1116.*fmc\und 100 \\
+250 &= 250 + 1116 * 0 \\
+qig\und herba\und dead &= 250. + 1116.*fmc\und herba\und dead \\
+283.4800 &= 250 + 1116 * 0.03 \\
+qig\und herba     &= 250. + 1116.*fmc\und herba \\
+250 &= 250 + 1116 * 0 \\
+qig\und woody     &= 250. + 1116.*fmc\und woody \\
+250 &= 250 + 1116 * 0 
+\end{split}
+\end{equation}
+
+\subsubsection*{effective heating number of each size class within each category}
+\begin{equation}
+	\begin{split}
+	epsilon\und 1          &= \exp(-138 / savr\und 1) \\
+		0.9613 &= \exp (-138 / 3500) \\
+	epsilon\und 10         &= \exp(-138 / savr\und 10) \\
+		0.2819 &= \exp (-138 / 109) \\
+	epsilon\und 100        &= \exp(-138 / savr\und 100) \\
+		0.0101 &= \exp (-138 / 30) \\
+	epsilon\und herba\und dead &= \exp(-138 / savr\und herba\und dead) \\
+		0.9863 &= \exp (-138 / 9999) \\
+	epsilon\und herba      &= \exp(-138 / savr\und herba) \\
+		0.9863 &= \exp (-138 / 9999) \\
+	epsilon\und woody      &= \exp(-138 / savr\und woody) \\
+		0.9863 &= \exp (-138 / 9999) 
+	\end{split}
+\end{equation}
+
+\subsubsection*{Heat sink of the dead and live categories}
+
+\begin{equation}
+	\begin{split}
+				heat\und sink\und dead = rhob * f\und dead * ( f\und 1 * epsilon\und 1 * qig\und 1 + f\und 10 \\ * epsilon\und 10 * qig\und 10 +  f\und 100 * epsilon\und 100 * qig\und 100 + 
+                     f\und herba\und dead * \\epsilon\und herba\und dead * qig\und herba\und dead) 
+	\end{split}
+\end{equation}
+Due to text wrapping issues (will resolve later), I am just going to split it into two equations. 
+\begin{equation}
+	9.2657 = 0.0340 * 1 (1 * 0.9613 * 283.4800 + (0*0)
+\end{equation}
+
+
+\subsubsection*{Model on flat ground and no wind}
+Now we are finally at the last equation. 
+
+\begin{equation}
+	\label{r0_WFA}
+	\begin{split}
+	r\und 0 &= \frac{ir * xifr}{heat\und sink\und dead + heat\und sink\und live} * 0.00508 \\
+	\\
+	0.0297 &= \frac{939.3928 * 0.0578}{9.2657} * 0.00508
+	\end{split}
+\end{equation}
+
+\section{Differences Between The Models}
+	Some of the immediate differences between the models lie in the need to 1hr, 10hr, 100hr, live, and woody fuel parameters. WRF-SFIRE only uses one value for the fuel parameters whereas the WFA code uses multiple. The WFA code also requires many more inputs than the WRF-SFIRE code. The WFA code and the BehavePlus model are identical as well. With these differences between WRF-SFIRE and WFA, that impacts the rate of spread as well using the same Rothermel model. The WRF-SFIRE model is based on the CAWFE code, and the WFA model is based either on Behave or based on Patricia L. Andrew's paper as the equations in that paper are identical to their code. 
+	
+	Since these two codes are pretty different, I will base most of my analysis on the WFA code since that is the most difficult to follow and I will compare that to the WRF-SFIRE code. 
+
+\iffalse
+\subsubsection*{Fuel Load}
+In the WFA code, there are 6 different fuel loads that are used across the model whereas the WRF-SFIRE code only uses one fuel load. With the base equations that require only one fuel load (equation \ref{rhob_WFA} and\ref{betafl_WFA}). To obtain a single fuel load, the WFA code adds all the fuel loads together. In the WRF-SFIRE code, the fuel load is one value (that is given in the fuel parameters) and it is used in equation \ref{fuelloadm}, equation \ref{betafl_WRF}, and equation \ref{wn_WRF}. With different fuel loads, that impacts the overall model since these different fuel loads are used in the calculations of the mean total surface area per unit fuel cell (equation \ref{mean_total_surface_area}), net fuel loading of each size class (equation \ref{size_class}), the net fuel loading of each size class (equation \ref{net_fuel_load_each_class}), and the live fuel moisture of extinction (equation \ref{live_fmc_ext})
+\fi
+
+\subsubsection{Comparing The Rate Of Spread Equations}
+
+\begin{equation}
+	\label{WRF-ROS}
+	\begin{split}
+		r0 &= \frac{ir*xifr}{rhob * epsilon *qig} * .00508 \\
+		0.0265 &= \frac{812.8685 * 0.0577}{0.0330 * 0.9613 * 283.4800} * 0.00508
+	\end{split}
+\end{equation}
+Rate of spread from WRF-SFIRE. 
+
+	\begin{equation}
+	\label{r0_WFA_2}
+	\begin{split}
+	r\und 0 &= \frac{ir * xifr}{heat\und sink\und dead + heat\und sink\und live} * 0.00508 \\
+	\\
+	0.0297 &= \frac{939.3928 * 0.0578}{9.2657} * 0.00508
+	\end{split}
+\end{equation}
+Rate of spread from WFA. \\
+
+As we can see, the result from the models differ, and we can see some of the parameters that remain similar (xifr), and the parameters that are different (rhob, epsilon, qig, ir). As a result, we will go through each parameter and see how they are different from each other. While the equations have already been referenced, I will rewrite them for an easier comparison. 
+
+\subsubsection{IR (Reaction Intensity, $\frac{btu}{ft^2}$)}
+Here are the reaction intensities from both WFA and from WRF-SFIRE. 
+
+WFA: 
+\begin{equation}
+\label{WFA_IR_2}
+\begin{split}
+		ir &= gamma * (wn\und dead * fuelheat\und dead * etam\und dead * etas\und dead + wn\und live * fuelheat\und live * etam\und live * etas\und live) \\
+        939.3928 &= 14.2014 * (0.0321 * 8000 * 0.6169 * 0.4174 + 0 + 0 + 0 + 0)
+\end{split}
+\end{equation}
+	
+WRF-SFIRE:
+\begin{equation}
+\label{IR_WRF_2}
+	\begin{split}
+		ir       &= gamma * wn * fuelheat * etam * etas \\
+		812.8685 &= 13.4642 * 0.0313 * (7.4962 \tenpow{3}) * 0.6169 * 0.4147
+	\end{split}
+\end{equation}
+
+
+As we can see, these two parameters differ from each other by quite a significant amount. To fully understand the differences between them, I will go into how each parameter is calculated and compare them. 
+\subsubsection{Gamma}
+
+ In WFA, gamma is slightly different per model. These differences are due to a difference in both the fuel load, betafl, and calculation for a (coefficient for optimum reaction velocity).
+\\
+WFA
+\begin{equation}
+	\label{gamma_WFA}
+	\begin{split}
+		\Gamma &= gammax*(ratio^a * \exp(a*(1.-ratio)) \\
+		14.2014 &= 16.1837 * 0.2534 ^ {0.2087} * e^{0.2087 * (1 - 0.2534)} \\
+		gammax &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706\tenpow{5} (495 + 0.0594* 2.0706\tenpow{5}) \\
+		ratio &= betafl/betaop \\
+		0.2534 &= 0.0011 / 0.0042 \\
+		betafl &= fuelload/(fueldepth * fueldens) \\
+		0.0011 &= 0.0340 / (1 * 32) \\
+		fuelload &= \Sigma fuelloads \\ 
+	    a &= 133 * savr ^ {-0.7913} \\
+		0.2087 &= 133 * 3500^{-0.7913} 
+	\end{split}
+\end{equation}
+
+
+WRF-SFIRE
+\begin{equation}
+	\begin{split}
+		\Gamma &= gammax*(ratio^a)*\exp(a*(1.-ratio)) \\
+		13.4642 &= 16.1837 * (0.2459 ^ {0.2836}) * e^{0.2836 * (1- 0.2459)} \\
+		gammax &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706 \tenpow{5} / (495. + 0.0594* 2.0706 \tenpow{5}) \\
+		ratio &= betafl / betaop \\
+		0.2459 &= 0.0010 / 0.0042 \\
+		betafl &= fuelload/(fueldepth * fueldens) \\
+		0.0010 &= 0.0330 / (1.0007 * 32) \\
+		a &= 1./(4.774 * savr^{0.1} - 7.27) \\
+		0.2836 &= 1./(4.774 * 3500^{0.1} - 7.27)
+	\end{split}
+\end{equation}
+
+Some of the major differences in the calculation for gamma come from the slightly different fuel load and the calculation of the coefficient for optimum reaction velocity (a). 
+
+\subsubsection*{Net Fuel Loading (wn)}
+
+The next parameter in the equation for the reaction intensity is the net fuel loading. Here we already see differences among the models as WFA calculates this using the different size classes within each category. These classes are then split up by live and dead and then added together in combination with the weighting factors to obtain the net fuel loading whereas the net fuel loading in WRF-SFIRE is calculated using the fuel load without moisture. The equations for calculating the net fuel load are as follows: 
+
+WFA
+\begin{equation}
+	\label{net_fuel_load_each_class_2}
+	\begin{split}
+		wn\und 1 &= fuelload\und 1 * (1 - st) \\
+		0.0321 &= 0.0340 * (1 - 0.0555) \\
+		wn\und 10 &= fuelload\und 10 * (1 - st) \\
+		wn\und 100 &= fuelload\und 100 * (1 - st) \\
+		wn\und herba\und dead &= fuelload\und herba\und dead * (1 - st) \\
+		wn\und herba &= fuelload\und herba * (1 - st) \\
+		wn\und woody &= fuelload\und woody * (1 - st) \\
+		wn\und dead &= (f\und 1 + f\und herba\und dead) * (wn\und 1 + wn\und herba\und dead) + f\und 10 * wn\und 10 + f\und 100 * wn\und 100 \\
+		0.0321 &= (1 + 0) * (0.0321 + 0) * (0 * 0) + (0 * 0) \\
+		wn\und live &= f\und herba * wn\und herba + f\und woody * wn\und woody 
+	\end{split}
+\end{equation}
+
+
+WRF-SFIRE
+
+\begin{equation}
+\label{wn_WRF_2}
+	\begin{split}
+	wn &= fuelload / (1+ st) \\
+	0.0313 &= 0.0330 / (1 + 0.0555)	
+	\end{split}
+\end{equation}
+
+With different fuel categories a larger change in the value for the net fuel loading will be more apparent as most other fuel categories have some other components (such as 10hr fgi, 100hr fgi, live woody, live herbaceous, etc.) which will change the value. Since we are using fuel type 1 (tall grass), this fuel type only contains 1hr dead properties, making for a much simpler calculation.
+
+\subsubsection*{Fuel Heat}
+
+The fuel heat is a given property in each fuel category. There are no calculations in these parameters (except for a conversion to BTU/lb). Here are the values for each model:
+
+WFA: 8000
+
+WRF-SFIRE: 7.4962 \tenpow{3}
+
+
+\subsubsection*{Mineral and Moisture Damping Coefficients (etam and etas)}
+Like with the net fuel loading equations, the WFA model goes about calculating this different than WRF-SFIRE. There are weighting components on each fuel class as well as splitting up the components between live and dead. WRF-SFIRE only uses one value for the fuel load and fuel moisture which makes the calculation much more simple.
+
+WFA
+\begin{equation}
+\label{mineral_damping_WFA}
+\begin{split}
+		etam\und dead &= 1. - 2.59*rtemp1\und dead + 5.11*rtemp1\und dead^2 - 3.52*rtemp1\und dead^3 \\
+		0.6169 &= 1 - 2.59 * 0.2500 + 5.11 * 0.2500 ^ 2 - 3.52 * 0.2500 ^ 3 \\
+		rtemp1\und dead &= min(1,fmc\und dead/fuelmce) \\
+		0.2500 &= min(1, 0.0300 / 0.1200) \\
+		rtemp1\und live   &= min(1,fmc\und live/fuelmce\und live) \\
+		etam\und live &= 1. - 2.59*rtemp1\und live + 5.11*rtemp1\und live^2 - 3.52*rtemp1\und live^3 \\
+		1 &= 1 - 0 + 0 - 0 \\
+		etas\und dead &= 0.174* power\und (se\und dead, -0.19) \\
+		0.4174 &= 0.174 * 0.0100^-0.19 \\
+		se\und dead &= (f\und 1 + f\und 10 + f\und 100 + f\und herba\und dead) * se \\
+		0.0100 &= (1 + 0 + 0 + 0) * 0.0100 \\
+		se\und live &= (f\und herba + f\und woody) * se \\
+		etas\und live &= 0.174* power\und (se\und live, -0.19) 
+\end{split}
+\end{equation}
+
+
+
+
+WRF-SFIRE
+
+
+\begin{equation}
+	\begin{split}
+		rtemp1 &= fuelmc\textunderscore g / fuelmce \\
+		0.2500 &= 0.03 / 0.1200 \\
+		etam & = 1.-2.59*rtemp1 +5.11*rtemp1^2 -3.52*rtemp1^3 \\
+		0.6169 &= 1 - 2.59 * 0.25 + 5.11 * 0.25^2 - 3.53 * 0.25^3 \\
+		etas &= 0.174 * se^{-0.19} \\
+		0.4174 &= 0.174 * 0.01 ^ {-0.19}
+	\end{split}
+\end{equation}
+
+
+Overall, the values for the mineral and moisture damping coefficients are the same for this fuel category, but for other categories they will be different based on how the other fuel properties have 10hr and 100hr properties. That will create a different weight on each fuel class. 
+The major differences that lead to a difference in the calculation for the reaction intensity lie in the calculation for gamma as well as the net fuel loading and the fuel heat.
+
+
+
+\subsubsection{xifr}
+
+While there will be no equations in this section, this will be more of an aside. With different fuels, that will lead to a difference in the overall propagating flux ratio. In the WFA model, there are weighting factors used in the calculation of the surface area to volume ratio. Since this fuel class only contains one value for the SAVR, that makes this calculation the same as in the WRF-SFIRE model. If this analysis is performed with a different fuel class, be prepared to dig into those equations. The leading cause of the differences would be due to the different weighting factors. Other than that the equations are identical. The weighting factors can be seen in equation \ref{savr_dead_alive}. 
+
+
+\subsubsection{rhob}
+
+This sections will focus on the calculation for rhob. Since rhob is not shown in the WFA equation, it is still present, it is just included in the head sink dead and alive parameters. Since this fuel type is dead, I will just be focusing on that. I will also include the values obtained for rhob in this section. 
+
+WFA
+\begin{equation}
+\label{rhob_WFA}
+	\begin{split}
+		rhob  &= fuelload/fueldepth \\
+		0.0340 &= 0.0340 / 1 \\
+		fuelload &= fuelload\und 1 + fuelload\und 10 + fuelload\und 100 + fuelload\und herba\und dead + fuelload\und herba + fuelload\und woody \\
+		0.0340 &= 0.0340 + 0 + 0 + 0 + 0 + 0
+	\end{split}
+\end{equation}
+
+
+WRF-SFIRE:
+\begin{equation}
+	\begin{split}
+		rhob &= fuelload/fueldepth \\
+		0.0330 &= 0.0330 / 1.0007
+	\end{split}
+\end{equation}
+
+
+While slight, there are still some differences in rhob that come from the differences in the fuel load. There is also a more accurate conversion in the WRF-SFIRE code for the fuel depth compared to WFA. Overall, this is not much of a change initially but with different fuel parameters, that will impact the value for rhob significantly. 
+
+REMOVE THIS LATER. I JUST NEED THIS AS A REFERENCE
+
+
+
+\subsubsection*{epsilon}
+Like with rhob, this is not seen in the calculation for the rate of spread, but it is within the heat sink dead parameter. In the WFA model, weighting factors are applied to each epsilon (and each qig which will be discussed later), which makes calculating other fuel parameters much more difficult. In this study, the weighting parameter is equal to one which makes this calculation much easier, but with different fuel parameters, this will likely not be the case. There are also multiple epsilons due to the different savrs, but in this I will focus on all the calculations since they are all non zero or 1 values. 
+
+WFA:
+\begin{equation}
+	\begin{split}
+	epsilon\und 1          &= \exp(-138 / savr\und 1) \\
+		0.9613 &= \exp (-138 / 3500) \\
+	epsilon\und 10         &= \exp(-138 / savr\und 10) \\
+		0.2819 &= \exp (-138 / 109) \\
+	epsilon\und 100        &= \exp(-138 / savr\und 100) \\
+		0.0101 &= \exp (-138 / 30) \\
+	epsilon\und herba\und dead &= \exp(-138 / savr\und herba\und dead) \\
+		0.9863 &= \exp (-138 / 9999) \\
+	epsilon\und herba      &= \exp(-138 / savr\und herba) \\
+		0.9863 &= \exp (-138 / 9999) \\
+	epsilon\und woody      &= \exp(-138 / savr\und woody) \\
+		0.9863 &= \exp (-138 / 9999) 
+	\end{split}
+\end{equation}
+
+
+WRF-SFIRE:
+\begin{equation}
+	\begin{split}
+		epsilon &= e ^ {-138 / savr} \\
+		0.9613 &= e ^ {-138 / 3500} 
+	\end{split}
+\end{equation}
+
+While the equations are the same, the different fuel parameters make the final calculation in the denominator of the rate of spread different. One note, there are multiple savr values for fuel type one since that is specified in the Andrews paper that all fuel categories will have these set savr values. The initial value for epsilon is identical in WFA to WRF-SFIRE. One other thing to note, in the final calculation for the heat sink dead, the weighting factors are 0 for fuel type one since there is no fuel load for 10 or 100 hr, so modifying the code there will not make any changes. 
+
+
+\subsubsection{Q$_{ig}$}
+
+Like with epsilon, in the final equation the different qig values will not impact the model since the weighting factor is 0. As a result, I will just focus on the 1hr component since that matches up with WRF-SFIRE. Here are the different equations for qig:
+
+WFA
+
+\begin{equation}
+\label{qig_WFA}
+	\begin{split}
+	qig\und 1         &= 250. + 1116.*fmc\und 1 \\
+	283.4800 &= 250 + 1116 * 0.03 \\
+qig\und 10        &= 250. + 1116.*fmc\und 10 \\
+250 &= 250 + 1116 * 0 \\
+qig\und 100       &= 250. + 1116.*fmc\und 100 \\
+250 &= 250 + 1116 * 0 \\
+qig\und herba\und dead &= 250. + 1116.*fmc\und herba\und dead \\
+283.4800 &= 250 + 1116 * 0.03 \\
+qig\und herba     &= 250. + 1116.*fmc\und herba \\
+250 &= 250 + 1116 * 0 \\
+qig\und woody     &= 250. + 1116.*fmc\und woody \\
+250 &= 250 + 1116 * 0 
+\end{split}
+\end{equation}
+
+WRF-SFIRE
+
+
+\begin{equation}
+	\begin{split}
+		qig &= 250. + 1116.*fuelmc \textunderscore g \\
+		283.4800 &= 250 + 1116 * 0.03
+	\end{split}
+\end{equation}
+
+As we can see here, the two values for qig are identical, and there are identical equations. However, is this analysis is done with different fuels, then you will have to account for the other qig values that have different fmcs. 
+
+
+\section{Conclusion}
+Here are the final equations with the values plugged in so we can see everything. 
+\begin{equation}
+	\label{WRF-ROS}
+	\begin{split}
+		r0 &= \frac{ir*xifr}{rhob * epsilon *qig} * .00508 \\
+		0.0265 &= \frac{812.8685 * 0.0577}{0.0330 * 0.9613 * 283.4800} * 0.00508
+	\end{split}
+\end{equation}
+Rate of spread from WRF-SFIRE. 
+
+	\begin{equation}
+	\label{r0_WFA_2}
+	\begin{split}
+	r\und 0 &= \frac{ir * xifr}{heat\und sink\und dead + heat\und sink\und live} * 0.00508 \\
+	\\
+	0.0297 &= \frac{939.3928 * 0.0578}{0.0340 * 0.9613 * 283.4800} * 0.00508
+	\end{split}
+\end{equation}
+
+
+
+
 
 
 
