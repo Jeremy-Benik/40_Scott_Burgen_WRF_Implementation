@@ -187,7 +187,7 @@ bbb      = 0.02526 * savr^0.54;            % const in wind coef
 e        = 0.715 * exp( -3.59e-4 * savr);  % const in wind coef
 phiwc    = c * (betafl/betaop)^(-e);
 phiw     = umid^bbb * phiwc;                  % wind coef
-phis = 5.275 * betafl^(-0.3) *max(0,tanphi)^2;  % slope factor
+phis = 5.275 * betafl^(-0.3) *max(0,tanphi)^2  % slope factor
 ros = r_0 * (1. + phiw + phis) * .00508; % spread rate, m/s
 end
 function r = div_(a,b)

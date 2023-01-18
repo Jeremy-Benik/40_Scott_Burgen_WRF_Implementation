@@ -55,7 +55,7 @@ bbb      = 0.02526 * savr^0.54;            % const in wind coef
 %to stay at midflame, keep this commented out
 %compare this code to SFIRE
 e        = 0.715 * exp( -3.59e-4 * savr);  % const in wind coef
-phiwc    = c * (betafl/betaop)^(-e); 
+phiwc    = c * (betafl/betaop)^(-e) 
 rtemp2   = savr^1.5;
 gammax   = rtemp2/(495. + 0.0594*rtemp2);  % maximum rxn vel, 1/min
 a        = 1./(4.774 * savr^0.1 - 7.27);   % coef for optimum rxn vel
@@ -68,7 +68,7 @@ etas     = 0.174* se^(-0.19);              % mineral damping coef
 ir       = gamma * wn * fuelheat * etam * etas; % rxn intensity,btu/ft^2 min
 irm      = ir * 1055./( 0.3048^2 * 60.) * 1.e-6;% for mw/m^2 (set but not used)
 xifr     = exp( (0.792 + 0.681*savr^0.5)...
-            * (betafl+0.1)) /(192. + 0.2595*savr) % propagating flux ratio
+            * (betafl+0.1)) /(192. + 0.2595*savr); % propagating flux ratio
 %        ... r_0 is the spread rate for a fire on flat ground with no wind.
 r_0      = ir*xifr/(rhob * epsilon *qig);  % default spread rate in ft/min
 
@@ -80,7 +80,7 @@ if ~ichap,
     umidm = min(spdms,30.);                    % max input wind spd is 30 m/s   !param!
     umid = umidm * 196.850;                    % m/s to ft/min
     %  eqn.: phiw = c * umid**bbb * (betafl/betaop)**(-e) ! wind coef
-    phiw = umid.^bbb * phiwc;                   % wind coef
+    phiw = umid.^bbb * phiwc                   % wind coef
     phis = 5.275 * betafl^(-0.3) *max(0,tanphi)^2;   % slope factor
     ros = r_0*(1. + phiw + phis)  * .00508; % spread rate, m/s
 else  % chapparal
