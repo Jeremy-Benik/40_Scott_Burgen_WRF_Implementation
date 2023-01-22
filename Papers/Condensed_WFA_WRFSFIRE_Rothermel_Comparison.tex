@@ -5,26 +5,127 @@
 \usepackage[square]{natbib}
 \usepackage{caption}
 \usepackage{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
 \usepackage{tcolorbox}
 \newcommand\tenpow[1]{\ensuremath{{\times}10^{#1}}}
 \newcommand\und{\textunderscore}
 % These are the package Aurelien uses
 \usepackage[top=2cm,bottom=2cm,right=2.5cm,left=2.5cm]{geometry}
 \begin{document}
-\title{WRF-SFIRE vs. WFA}
+\title{Analysis of The Implementation of The Rothermel Model in Two Fire Spread Models (WFA and WRF-SFIRE)}
 \author{By: Jeremy Benik}
 \maketitle
 \section{Introduction}
-	This document will cover the underlying equations in the WRF-SFIRE Rothermel model (fire \und ros.m \url{https://github.com/openwfm/wrf-fire-matlab/blob/master/vis3d/fire_ros.m}) and the WFA Rothermel model. To create a baseline test, I will be using the same example throughout the codes. Using the Albini fuel classes, I will use fuel category 1 (short grass) with a dead fuel moisture of 3\%, and no wind and no slope for simplification. Then after this test I will include slope and wind conditions to further analyze the models to check for any differences.
+	This document will outline the key differences between the WRF-SFIRE Rothermel implementation and the WFA Rothermel implementation. WRF-SFIRE's implementation of Rothermel is based on the CAWFE code whereas the WFA Rothermel model is based on Patricia L. Andrew's paper. This paper is cited below as well as links to each model in appendix A. Lastly, a more in depth document outlining every calculation in each model can be found on my GitHub and that document can also be found in appendix A. 
+	
+	For this analysis, the final rate of spread (ROS) equations from both models will be analyzed initially to discuss the major differences, and then each component with major differences will be further discussed and analyzed. The first part will be analyzing the no slope and no wind component, and then the slope and wind coefficients will be added in after the initial analysis. 
+	
+	To accurately test the models, both models used the same input (fuel type 1 (short grass), 3\% FMC, 0 wind, 0 slope). This way we can see where the models diverge from each other. 
+	
+\section{Rothermel Model From WFA and WRF-SFIRE}
 
-The code I'm going to use is fire\textunderscore ros.m from the wrf-fire repository (please see link in the beginning). I will be going through each calculation in these codes and displaying the final result. I will not be going into how the Rothermel model was developed in this paper. If you want to read more about that please visit this link: \url{https://github.com/Jeremy-Benik/164/blob/main/Assignments/Final_Drafts/Jeremy_Benik_Rothermel_vs_Balbi.pdf}. 
+Here are the final equations from both models with the values so we can see the final calculation. 
 
-To analyze the models, I went through every equation within the model and show the corresponding values and the final calculation. This way we can see how the model calculates each component and how they contribute to the overall ROS. The first model in this paper is the fire\und ros.m file from WRF-SFIRE, then it's the Rothermel model from WFA. This code was originally written in C++, however Dr. Angel Farguell Caus from San Jose State University translated the code into a matlab code so it can be much more easily read and tested for those not familiar with C++. 
+% WFA Rothermel model
+\subsubsection*{WFA}
+	\begin{equation}
+	\label{r0_WFA_2}
+	\begin{split}
+	r_0 &= \frac{ir * xifr}{heat\und sink\und dead + heat\und sink\und live} * 0.00508 \\
+	\\
+	0.0297 &= \frac{939.3928 * 0.0578}{0.0340 * 0.9613 * 283.4800} * 0.00508
+	\end{split}
+\end{equation}
 
-Some major differences in the WFA code and the WRF-SFIRE code are the WFA code uses more fuel parameters than the WRF-SFIRE code. In the WFA model, they use fuel data such as the different fuel loads for the different fuel classes(1hr, 10hr, etc), they incorporate the different surface area to volumes for the different classes, and the different fuel moistures per class. By using fuel type 1, we avoid most of those since short grass only fits into the 1hr fuel category. However there are still some differences between the models since it still has to incorporate all those different parameters. 
+% WRF-SFIRE model
+\subsubsection*{WRF-SFIRE}
+\begin{equation}
+	\label{WRF-ROS}
+	\begin{split}
+		r_0 &= \frac{ir*xifr}{rhob * epsilon *qig} * .00508 \\
+		0.0265 &= \frac{812.8685 * 0.0577}{0.0330 * 0.9613 * 283.4800} * 0.00508
+	\end{split}
+\end{equation}
 
 
-\section{WRF-SFIRE}
+The most notable difference here is the reaciton intensity (ir). In WFA, the value for ir (939.3928) is much greater than in the WRF-SFIRE model (812.8685). Below is the calculation for ir for both models 
+
+
+\subsubsection{IR (Reaction Intensity, $\frac{btu}{ft^2}$)}
+Here are the reaction intensities from both WFA and from WRF-SFIRE. 
+
+WFA: 
+\begin{equation}
+\label{WFA_IR_2}
+\begin{split}
+		ir &= gamma * (wn\und dead * fuelheat\und dead * etam\und dead * etas\und dead + \\
+		& wn\und live * fuelheat\und live * etam\und live * etas\und live) \\
+        939.3928 &= 14.2014 * (0.0321 * 8000 * 0.6169 * 0.4174 + 0 + 0 + 0 + 0)
+\end{split}
+\end{equation}
+	
+WRF-SFIRE:
+\begin{equation}
+\label{IR_WRF_2}
+	\begin{split}
+		ir       &= gamma * wn * fuelheat * etam * etas \\
+		812.8685 &= 13.4642 * 0.0313 * (7.4962 \tenpow{3}) * 0.6169 * 0.4147
+	\end{split}
+\end{equation}
+
+
+As we can see, these two parameters differ from each other by quite a significant amount. The biggest difference between the two equations are the values for gamma and the fuelheats. The fuelheat is an input parameter from the fuels file and it varies between these two models. In WFA, the fuelheat is set to 8000 BTU/lb and the fuelheat in WRF-SFIRE is 7496.2 BTU/lb. By modifying the fuelheat parameter in WFA to have the same value as WRF-SFIRE, we get an ir of 880.2345 which is still significantly larger that the calculation in WRF-SFIRE. To better understand what is leading to these differences, we went through the calculations for gamma to find what is causing these differences in the calculation. These calculations can be seen in equations \ref{gamma_WFA} and equations \ref{gamma_WRF}
+\subsubsection{Gamma}
+
+\\
+
+WFA
+\begin{equation}
+	\label{gamma_WFA}
+	\begin{split}
+		\Gamma &= gammax*(ratio^a * \exp(a*(1.-ratio)) \\
+		14.2014 &= 16.1837 * 0.2534 ^ {0.2087} * e^{0.2087 * (1 - 0.2534)} \\
+		gammax &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706\tenpow{5} (495 + 0.0594* 2.0706\tenpow{5}) \\
+		ratio &= betafl/betaop \\
+		0.2534 &= 0.0011 / 0.0042 \\
+		betafl &= fuelload/(fueldepth * fueldens) \\
+		0.0011 &= 0.0340 / (1 * 32) \\
+		fuelload &= \Sigma fuelloads \\ 
+	    a &= 133 * savr ^ {-0.7913} \\
+		0.2087 &= 133 * 3500^{-0.7913} 
+	\end{split}
+\end{equation}
+
+
+WRF-SFIRE
+\begin{equation}
+\label{gamma_WRF}
+	\begin{split}
+		\Gamma &= gammax*(ratio^a)*\exp(a*(1.-ratio)) \\
+		13.4642 &= 16.1837 * (0.2459 ^ {0.2836}) * e^{0.2836 * (1- 0.2459)} \\
+		gammax &= rtemp2/(495. + 0.0594*rtemp2) \\
+		16.1837 &= 2.0706 \tenpow{5} / (495. + 0.0594* 2.0706 \tenpow{5}) \\
+		ratio &= betafl / betaop \\
+		0.2459 &= 0.0010 / 0.0042 \\
+		betafl &= fuelload/(fueldepth * fueldens) \\
+		0.0010 &= 0.0330 / (1.0007 * 32) \\
+		a &= 1./(4.774 * savr^{0.1} - 7.27) \\
+		0.2836 &= 1./(4.774 * 3500^{0.1} - 7.27)
+	\end{split}
+\end{equation}
+
+The major differences between these calculations for gamma are the calculation for the coefficient for optimum reaction velocity (a). WRF-SFIRE uses the equation from the original Rothermel paper, however WFA uses a different equation taken from Andrews that yields a different value for this coefficient. By modifying the WFA model and forcing a to equal 0.2836, the resulting ROS is the same as the WRF-SFIRE calculation, indicating this parameter has a huge influence on the final ROS. 
+
+\section{Different Fuel Classes}
+
+
+
+\iffalse
+
 \subsubsection{BMST}
 
 \begin{equation}
@@ -812,8 +913,6 @@ WRF-SFIRE:
 
 While slight, there are still some differences in rhob that come from the differences in the fuel load. There is also a more accurate conversion in the WRF-SFIRE code for the fuel depth compared to WFA. Overall, this is not much of a change initially but with different fuel parameters, that will impact the value for rhob significantly. 
 
-REMOVE THIS LATER. I JUST NEED THIS AS A REFERENCE
-
 
 
 \subsubsection*{epsilon}
@@ -988,12 +1087,7 @@ These values are pretty similar. Like with other parameters, this is likely to c
 In conclusion, the models are different from each other in that the WFA model includes calculations for different weights based on each fuel parameter compared to WRF-SFIRE which only uses one value. As for which one is more accurate, testing would need to be done for that, but this could be a project for the future. 
 
 
-
-
-
-
-
-
+\fi
 
 
 
