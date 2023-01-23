@@ -42,8 +42,8 @@ fuelheat=fuel.fuelheat;                   % FUEL PARTICLE LOW HEAT CONTENT (BTU/
 fuelmc_g=fuel.fuelmc_g;                   % FUEL PARTICLE (SURFACE) MOISTURE CONTENT (1)
 fuelmc_c=fuel.fuelmc_c;                   % FUEL PARTICLE (CANOPY) MOISTURE CONTENT (1)
 fuelmce_live=fuel.fuelmce_live;           % MOISTURE CONTENT OF EXTINCTION FOR LIVE FUEL (1)
-fuelload_1=fuel.fuelload_1;               % OVEN-DRY FUEL LOAD FROM DEAD 1H FUEL (LB/FT^2)
-fuelload_10=fuel.fuelload_10;             % OVEN-DRY FUEL LOAD FROM DEAD 10H FUEL (LB/FT^2)
+fuelload_1=fuel.fuelload_1               % OVEN-DRY FUEL LOAD FROM DEAD 1H FUEL (LB/FT^2)
+fuelload_10=fuel.fuelload_10             % OVEN-DRY FUEL LOAD FROM DEAD 10H FUEL (LB/FT^2)
 fuelload_100=fuel.fuelload_100;           % OVEN-DRY FUEL LOAD FROM DEAD 100H FUEL (LB/FT^2)
 fuelload_herba=fuel.fuelload_herba;       % OVEN-DRY FUEL LOAD FROM LIVE HERBACEOUS FUEL (LB/FT^2)
 fuelload_woody=fuel.fuelload_woody;       % OVEN-DRY FUEL LOAD FROM LIVE WOODY FUEL (LB/FT^2)
@@ -69,7 +69,7 @@ if idynamic
     end
 end
 % total fuel load
-fuelload      = fuelload_1 + fuelload_10 + fuelload_100 + fuelload_herba_dead + fuelload_herba + fuelload_woody; 
+fuelload      = fuelload_1 + fuelload_10 + fuelload_100 + fuelload_herba_dead + fuelload_herba + fuelload_woody 
 % mean total surface area per unit fuel cell of each size class within each category
 A_1           = savr_1 * fuelload_1 / fueldens; 
 A_10          = savr_10 * fuelload_10 / fueldens;
@@ -150,7 +150,6 @@ gamma         = gammax*(power_(ratio, a))*exp(a*(1.-ratio)); % optimum rxn vel, 
 xifr          = exp( (0.792 + 0.681*power_(savr, 0.5))...
                 * (betafl+0.1)) /(192. + 0.2595*savr); % propagating flux ratio
 % rxn intensity, btu/ft^2 min
-disp(savr)
 ir            = gamma * (wn_dead * fuelheat_dead * etam_dead * etas_dead + ...
                 wn_live * fuelheat_live * etam_live * etas_live);
 % heat of preiginition of each size class within each category, btu/lb
@@ -179,6 +178,7 @@ heat_sink_live     = rhob * f_live * ( ...
 %        ... r_0 is the spread rate for a fire on flat ground with no wind.
 r_0                = div_(ir*xifr, heat_sink_dead + heat_sink_live); % default spread rate in ft/min
 % wind speed in ft/min with wind limit
+%try without this flag (modify the code a bit)
 umid     = min(max(0, speed * 196.850), 0.9 * ir); % m/s to ft/min
 % original computations from fire_ros.m
 c        = 7.47 * exp(-0.133 * savr^0.55); % const in wind coef
@@ -186,8 +186,8 @@ bbb      = 0.02526 * savr^0.54;            % const in wind coef
 %c        = c * windrf^bbb;                 % jm: wind reduction from 20ft per Baughman&Albini(1980)
 e        = 0.715 * exp( -3.59e-4 * savr);  % const in wind coef
 phiwc    = c * (betafl/betaop)^(-e);
-phiw     = umid^bbb * phiwc;                  % wind coef
-phis = 5.275 * betafl^(-0.3) *max(0,tanphi)^2  % slope factor
+phiw     = umid.^bbb * phiwc;                  % wind coef
+phis = 5.275 * betafl^(-0.3) *max(0,tanphi)^2;  % slope factor
 ros = r_0 * (1. + phiw + phis) * .00508; % spread rate, m/s
 end
 function r = div_(a,b)

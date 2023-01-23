@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: /Users/jeremybenik/Research_Files/40_Scott_Burgen_WRF_Implementation/Papers/.texpadtmp/Condensed_WFA_WRFSFIRE_Rothermel_Comparison.aux
+The style file: agsm.bst
+Database file #1: ../WFA_WRFSFIRE.bib
+You've used 1 entry,
+            2909 wiz_defined-function locations,
+            644 strings with 5220 characters,
+and the built_in function-call counts, 2176 in all, are:
+= -- 332
+> -- 24
+< -- 0
++ -- 150
+- -- 7
+* -- 162
+:= -- 487
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 13
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 16
+empty$ -- 30
+format.name$ -- 9
+if$ -- 378
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 2
+newline$ -- 6
+num.names$ -- 10
+pop$ -- 9
+preamble$ -- 1
+purify$ -- 15
+quote$ -- 0
+skip$ -- 10
+stack$ -- 0
+substring$ -- 454
+swap$ -- 1
+text.length$ -- 14
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 2
+warning$ -- 0
+while$ -- 21
+width$ -- 0
+write$ -- 14
