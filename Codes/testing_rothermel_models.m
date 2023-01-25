@@ -99,42 +99,42 @@ title('WRF ROS Model with Fuel Cateogory 4', fontsize = 15, ...
 x = linspace(0, 15, 500);
 fuel_5_WFA = zeros(500);
 fuel_5_WFA = fire_ros_tslv(fuel(5), x, 0, 0.15, 0.15, 0.15, 0.15, 0.15);
-plot(x, fuel_5_WFA, 'red', 'LineWidth',2)
+plot(x, fuel_5_WFA, 'red', 'LineWidth',3)
 hold on;
 
 % Fuel type 6
 x = linspace(0, 15, 500);
 fuel_6_WFA = zeros(500);
 fuel_6_WFA = fire_ros_tslv(fuel(6), x, 0, 0.15, 0.15, 0.15, 0.15, 0.15);
-plot(x, fuel_6_WFA, 'blue', 'LineWidth',2)
+plot(x, fuel_6_WFA, 'blue', 'LineWidth',3)
 hold on;
 
 % Fuel type 7
 x = linspace(0, 15, 500);
 fuel_7_WFA = zeros(500);
 fuel_7_WFA = fire_ros_tslv(fuel(7), x, 0, 0.15, 0.15, 0.15, 0.15, 0.15);
-plot(x, fuel_7_WFA, 'green', 'LineWidth',2)
+plot(x, fuel_7_WFA, 'green', 'LineWidth',3)
 hold on;
 
 % Fuel type 8
 x = linspace(0, 15, 500);
 fuel_8_WFA = zeros(500);
 fuel_8_WFA = fire_ros_tslv(fuel(8), x, 0, 0.15, 0.15, 0.15, 0.15, 0.15);
-plot(x, fuel_8_WFA, 'magenta', 'LineWidth',2)
+plot(x, fuel_8_WFA, 'magenta', 'LineWidth',3)
 hold on;
 
 % Fuel type 9
 x = linspace(0, 15, 500);
 fuel_9_WFA = zeros(500);
 fuel_9_WFA = fire_ros_tslv(fuel(9), x, 0, 0.15, 0.15, 0.15, 0.15, 0.15);
-plot(x, fuel_9_WFA, 'black', 'LineWidth',2)
+plot(x, fuel_9_WFA, 'black', 'LineWidth',3)
 hold off;
-legend('fuel 5', 'fuel 6', 'fuel 7', 'fuel 8', 'fuel 9', 'Location','northwest')
+legend('fuel 5', 'fuel 6', 'fuel 7', 'fuel 8', 'fuel 9', 'Location','northwest', fontsize = 15)
 grid on;
-xlabel('Wind Speed (m/s)', fontsize = 12, fontweight = 'bold')
+xlabel('Wind Speed (m/s)', fontsize = 15, fontweight = 'bold')
 ylim([0, 6])
-ylabel('Rate of Spread (m/s)', fontsize = 12, fontweight = 'bold')
-title('WFA ROS Model with all 13 Albini Fuel Categories (15% FMC)', fontsize = 15, ...
+ylabel('Rate of Spread (m/s)', fontsize = 15, fontweight = 'bold')
+title('WFA ROS Model', fontsize = 18, ...
     fontweight = 'bold')
 
 %% WRF-SFIRE
@@ -143,28 +143,28 @@ fuels;
 x = linspace(0, 15, 500);
 fuel_5 = zeros(500);
 fuel_5 = fire_ros(fuel(5), x, 0, 0.15);
-plot(x, fuel_5, 'red', 'LineWidth',2)
+plot(x, fuel_5, 'red', 'LineWidth',3)
 hold on;
 
 % Fuel type 6
 x = linspace(0, 15, 500);
 fuel_6 = zeros(500);
 fuel_6 = fire_ros(fuel(6), x, 0, 0.15);
-plot(x, fuel_6, 'blue', 'LineWidth',2)
+plot(x, fuel_6, 'blue', 'LineWidth',3)
 hold on;
 
 % Fuel type 7
 x = linspace(0, 15, 500);
 fuel_7 = zeros(500);
 fuel_7 = fire_ros(fuel(7), x, 0, 0.15);
-plot(x, fuel_7, 'green', 'LineWidth',2)
+plot(x, fuel_7, 'green', 'LineWidth',3)
 hold on;
 
 % Fuel type 8
 x = linspace(0, 15, 500);
 fuel_8 = zeros(500);
 fuel_8 = fire_ros(fuel(8), x, 0, 0.15);
-plot(x, fuel_8, 'magenta', 'LineWidth',2)
+plot(x, fuel_8, 'magenta', 'LineWidth',3)
 hold on;
 
 
@@ -172,16 +172,16 @@ hold on;
 x = linspace(0, 15, 500);
 fuel_9 = zeros(500);
 fuel_9 = fire_ros(fuel(9), x, 0, 0.15);
-plot(x, fuel_9, 'black', 'LineWidth',2)
+plot(x, fuel_9, 'black', 'LineWidth',3)
 hold off;
 
-legend('fuel 5', 'fuel 6', 'fuel 7', 'fuel 8', 'fuel 9', 'Location','northwest')
+legend('fuel 5', 'fuel 6', 'fuel 7', 'fuel 8', 'fuel 9', 'Location','northwest', fontsize = 15)
 
 grid on;
 ylim([0, 6])
-xlabel('Wind Speed (m/s)', fontsize = 12, fontweight = 'bold')
-ylabel('Rate of Spread (m/s)', fontsize = 12, fontweight = 'bold')
-title('WRF-SFIRE ROS Model with all 13 Albini Fuel Categories (15% FMC)', fontsize = 15, ...
+xlabel('Wind Speed (m/s)', fontsize = 15, fontweight = 'bold')
+ylabel('Rate of Spread (m/s)', fontsize = 15, fontweight = 'bold')
+title('WRF-SFIRE ROS Model', fontsize = 18, ...
     fontweight = 'bold')
 
 %% Showing all other fuel categories 10, 11, 12, 13
