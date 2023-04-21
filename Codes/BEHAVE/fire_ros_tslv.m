@@ -96,7 +96,7 @@ f_live        = A_live / AT;
 savr_dead     = f_1 * savr_1 + f_10 * savr_10 + f_100 * savr_100 + f_herba_dead * savr_herba_dead;
 savr_live     = f_herba * savr_herba + f_woody * savr_woody;
 % fuel particle surface-to-volume ratio of the fuel
-savr          = f_dead * savr_dead + f_live * savr_live;
+savr          = f_dead * savr_dead + f_live * savr_live
 % net fuel loading of each size class within each category
 wn_1          = fuelload_1 * (1 - st);
 wn_10         = fuelload_10 * (1 - st);
