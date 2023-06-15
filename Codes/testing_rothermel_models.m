@@ -134,7 +134,7 @@ grid on;
 xlabel('Wind Speed (m/s)', fontsize = 15, fontweight = 'bold')
 ylim([0, 6])
 ylabel('Rate of Spread (m/s)', fontsize = 15, fontweight = 'bold')
-title('WFA ROS Model', fontsize = 18, ...
+title('BehavePlus ROS Model', fontsize = 18, ...
     fontweight = 'bold')
 
 %% WRF-SFIRE
